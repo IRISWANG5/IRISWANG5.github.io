@@ -3,7 +3,6 @@
 }
 
 body {
-    transform: scale(1.1);
     margin: 0;
 }
 
@@ -102,4 +101,5 @@ p {
 
 .c11817 {
     color: #d983a6;
+    text-align: center;
 }
