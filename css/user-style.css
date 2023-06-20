@@ -3,6 +3,7 @@
 }
 
 body {
+    transform: scale(0.8);
     margin: 0;
 }
 
@@ -88,7 +89,6 @@ p {
 }
 
 .c10714 {
-    transform: scale(100%);
     color: black;
 }
 
