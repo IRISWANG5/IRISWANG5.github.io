@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="icon" href="https://htmlpage.cn/favicon.png">
+
+	<meta name='robots' content='noindex, follow' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v20.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>(/ﾟДﾟ)/没找到页面 - HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页</title>
+	<meta property="og:locale" content="zh_CN" />
+	<meta property="og:title" content="(/ﾟДﾟ)/没找到页面 - HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" />
+	<meta property="og:site_name" content="HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://htmlpage.cn/#website","url":"https://htmlpage.cn/","name":"HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页","description":"htmlpage.cn","publisher":{"@id":"https://htmlpage.cn/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://htmlpage.cn/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"zh-CN"},{"@type":"Organization","@id":"https://htmlpage.cn/#organization","name":"乐普软件","url":"https://htmlpage.cn/","logo":{"@type":"ImageObject","inLanguage":"zh-CN","@id":"https://htmlpage.cn/#/schema/logo/image/","url":"https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg","contentUrl":"https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg","width":140,"height":23,"caption":"乐普软件"},"image":{"@id":"https://htmlpage.cn/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//template-1253409072.cos.ap-guangzhou.myqcloud.com' />
+<link rel="alternate" type="application/rss+xml" title="HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页 &raquo; Feed" href="https://htmlpage.cn/feed" />
+<link rel="alternate" type="application/rss+xml" title="HTMLPAGE - 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页 &raquo; 评论Feed" href="https://htmlpage.cn/comments/feed" />
+<link rel='stylesheet' id='blocksy-dynamic-global-css' href='https://template-1253409072.cos.ap-guangzhou.myqcloud.com/blocksy/css/global.css?ver=86233' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://htmlpage.cn/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://htmlpage.cn/wp-includes/css/classic-themes.min.css?ver=6.2.2' media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--palette-color-1: var(--paletteColor1, #2872fa);--wp--preset--color--palette-color-2: var(--paletteColor2, #1559ed);--wp--preset--color--palette-color-3: var(--paletteColor3, #3A4F66);--wp--preset--color--palette-color-4: var(--paletteColor4, #192a3d);--wp--preset--color--palette-color-5: var(--paletteColor5, #e1e8ed);--wp--preset--color--palette-color-6: var(--paletteColor6, #f2f5f7);--wp--preset--color--palette-color-7: var(--paletteColor7, #FAFBFC);--wp--preset--color--palette-color-8: var(--paletteColor8, #ffffff);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--juicy-peach: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);--wp--preset--gradient--young-passion: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);--wp--preset--gradient--true-sunset: linear-gradient(to right, #fa709a 0%, #fee140 100%);--wp--preset--gradient--morpheus-den: linear-gradient(to top, #30cfd0 0%, #330867 100%);--wp--preset--gradient--plum-plate: linear-gradient(135deg, #667eea 0%, #764ba2 100%);--wp--preset--gradient--aqua-splash: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);--wp--preset--gradient--love-kiss: linear-gradient(to top, #ff0844 0%, #ffb199 100%);--wp--preset--gradient--new-retrowave: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%);--wp--preset--gradient--plum-bath: linear-gradient(to top, #cc208e 0%, #6713d2 100%);--wp--preset--gradient--high-flight: linear-gradient(to right, #0acffe 0%, #495aff 100%);--wp--preset--gradient--teen-party: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);--wp--preset--gradient--fabled-sunset: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);--wp--preset--gradient--arielle-smile: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);--wp--preset--gradient--itmeo-branding: linear-gradient(180deg, #2af598 0%, #009efd 100%);--wp--preset--gradient--deep-blue: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);--wp--preset--gradient--strong-bliss: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);--wp--preset--gradient--sweet-period: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);--wp--preset--gradient--purple-division: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);--wp--preset--gradient--cold-evening: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);--wp--preset--gradient--mountain-rock: linear-gradient(to right, #868f96 0%, #596164 100%);--wp--preset--gradient--desert-hump: linear-gradient(to top, #c79081 0%, #dfa579 100%);--wp--preset--gradient--ethernal-constance: linear-gradient(to top, #09203f 0%, #537895 100%);--wp--preset--gradient--happy-memories: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);--wp--preset--gradient--grown-early: linear-gradient(to top, #0ba360 0%, #3cba92 100%);--wp--preset--gradient--morning-salad: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);--wp--preset--gradient--night-call: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);--wp--preset--gradient--mind-crawl: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);--wp--preset--gradient--angel-care: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);--wp--preset--gradient--juicy-cake: linear-gradient(to top, #e14fad 0%, #f9d423 100%);--wp--preset--gradient--rich-metal: linear-gradient(to right, #d7d2cc 0%, #304352 100%);--wp--preset--gradient--mole-hall: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);--wp--preset--gradient--cloudy-knoxville: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);--wp--preset--gradient--soft-grass: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);--wp--preset--gradient--saint-petersburg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);--wp--preset--gradient--everlasting-sky: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);--wp--preset--gradient--kind-steel: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);--wp--preset--gradient--over-sun: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);--wp--preset--gradient--premium-white: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);--wp--preset--gradient--clean-mirror: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);--wp--preset--gradient--wild-apple: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);--wp--preset--gradient--snow-again: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);--wp--preset--gradient--confident-cloud: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);--wp--preset--gradient--glass-water: linear-gradient(to top, #dfe9f3 0%, white 100%);--wp--preset--gradient--perfect-white: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='parent-style-css' href='https://htmlpage.cn/wp-content/themes/blocksy/style.css?ver=6.2.2' media='all' />
+<link rel='stylesheet' id='searchwp-live-search-css' href='https://htmlpage.cn/wp-content/plugins/searchwp-live-ajax-search/assets/styles/style.css?ver=1.7.2' media='all' />
+<link rel='stylesheet' id='ct-main-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/main.min.css?ver=1.8.23' media='all' />
+<link rel='stylesheet' id='blocksy-ext-trending-styles-css' href='https://htmlpage.cn/wp-content/plugins/blocksy-companion/framework/extensions/trending/static/bundle/main.min.css?ver=1.8.45' media='all' />
+<link rel='stylesheet' id='blocksy-ext-product-reviews-styles-css' href='https://htmlpage.cn/wp-content/plugins/blocksy-companion/framework/extensions/product-reviews/static/bundle/main.min.css?ver=1.8.45' media='all' />
+<link rel='stylesheet' id='blocksy-ext-widgets-styles-css' href='https://htmlpage.cn/wp-content/plugins/blocksy-companion/framework/extensions/widgets/static/bundle/main.min.css?ver=1.8.45' media='all' />
+<link rel='stylesheet' id='ct-page-title-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/page-title.min.css?ver=1.8.23' media='all' />
+<link rel='stylesheet' id='ct-back-to-top-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/back-to-top.min.css?ver=1.8.23' media='all' />
+<link rel='stylesheet' id='ct-elementor-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/elementor-frontend.min.css?ver=1.8.23' media='all' />
+<link rel='stylesheet' id='ct-sidebar-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/sidebar.min.css?ver=1.8.23' media='all' />
+<link rel='stylesheet' id='ct-wpforms-styles-css' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/wpforms.min.css?ver=1.8.23' media='all' />
+<script src='https://htmlpage.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script src='https://htmlpage.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://htmlpage.cn/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://htmlpage.cn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://htmlpage.cn/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.2" />
+<!-- Analytics by WP Statistics v13.2.5 - https://wp-statistics.com/ -->
+<noscript><link rel='stylesheet' href='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/no-scripts.min.css' type='text/css' /></noscript>
+<meta name="generator" content="Elementor 3.14.0; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+		<style id="wp-custom-css">
+			.ct-product-hero .ct-image-container{ display: none}
+.ct-product-actions-group{
+	display: flex;
+  flex-direction: row-reverse;
+	justify-content: start;
+}
+.ct-product-actions-group > a{
+	margin-right: 25px
+}
+.ct-product-actions-group > a:first-child{
+	background-color: #eee;
+	color: #333;
+}
+.ct-product-scores{
+	margin-left: 0;
+	margin-right: 0;
+}		</style>
+				<meta name="keywords" content="网页设计,HTML在线构建器,HTMLPAGE,HTML5在线构建器,HTML在线编辑,拖拽网页生成,网页构建工具,网页制作,网页开发,在线制作网页,html编辑器,免费网页,制作网页,网页设计制作,响应式网页,交互设计,企业宣传册,企业网站,名片设计,响应式,在线做图,平面设计,思维导图,用户体验设计,网站设计,网站风格,网络拓扑图,网页设计,软件架构," />
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?3046fd20f813bbef24f4467855163c94";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+
+<body class="error404 wp-custom-logo wp-embed-responsive elementor-default elementor-kit-12116 ct-loading ct-elementor-default-template" data-link="type-2" data-prefix="" data-header="type-1:sticky" data-footer="type-1" >
+
+<a class="skip-link show-on-focus" href="#main">
+	跳过内容</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><div class="ct-drawer-canvas"><div id="offcanvas" class="ct-panel ct-header" data-behaviour="right-side" ><div class="ct-panel-inner">
+		<div class="ct-panel-actions">
+			<button class="ct-toggle-close" data-type="type-1" aria-label="Close drawer">
+				<svg class="ct-icon" width="12" height="12" viewBox="0 0 15 15">
+					<path d="M1 15a1 1 0 01-.71-.29 1 1 0 010-1.41l5.8-5.8-5.8-5.8A1 1 0 011.7.29l5.8 5.8 5.8-5.8a1 1 0 011.41 1.41l-5.8 5.8 5.8 5.8a1 1 0 01-1.41 1.41l-5.8-5.8-5.8 5.8A1 1 0 011 15z"/>
+				</svg>
+			</button>
+		</div>
+		<div class="ct-panel-content" data-device="desktop" ></div><div class="ct-panel-content" data-device="mobile" >
+<nav 
+	class="mobile-menu has-submenu" 
+	data-id="mobile-menu" data-interaction="click" data-toggle-type="type-1" 	aria-label="Off Canvas Menu">
+	<ul id="menu-main-menu-1" class=""><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-12140"><a href="https://htmlpage.cn/" class="ct-menu-link">首页</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12171"><a href="/builder" class="ct-menu-link">网页构建器</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12401"><a href="/template-list" class="ct-menu-link">模板</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-12143"><a href="https://htmlpage.cn/web-designs" class="ct-menu-link">设计</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12172"><span class="ct-sub-menu-parent"><a href="#" class="ct-menu-link">工具</a><button class="ct-toggle-dropdown-mobile" aria-label="Expand dropdown menu" aria-expanded="false" ><svg class="ct-icon toggle-icon-1" width="15" height="15" viewBox="0 0 15 15"><path d="M3.9,5.1l3.6,3.6l3.6-3.6l1.4,0.7l-5,5l-5-5L3.9,5.1z"/></svg></button></span>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13517"><a href="https://bida.chat" class="ct-menu-link">AI写作助手</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12890"><a href="/drawio/" class="ct-menu-link">在线做图(新)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12407"><a href="https://oss.htmlpage.cn/color/index.html" class="ct-menu-link">图片拾色器</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12445"><a href="https://htmlpage.cn/faqs" class="ct-menu-link">FAQ</a></li>
+</ul></nav>
+
+</div></div></div>
+	<a href="#main-container" class="ct-back-to-top ct-hidden-sm"
+		data-shape="square"
+		data-alignment="right"
+		title="转到顶部" aria-label="转到顶部">
+
+		<svg class="ct-icon" width="15" height="15" viewBox="0 0 20 20"><path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"/></svg>
+		
+	</a>
+
+	</div>
+<div id="main-container">
+	<header id="header" class="ct-header" data-id="type-1" ><div data-device="desktop" ><div class="ct-sticky-container"><div data-sticky="shrink"><div data-row="middle" data-column-set="3" ><div class="ct-container" ><div data-column="start" data-placements="1" ><div data-items="primary" >
+<div	class="site-branding"
+	data-id="logo" 		>
+
+			<a href="https://htmlpage.cn/" class="site-logo-container" rel="home"><img src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg" class="sticky-logo" alt="HTMLPAGE &#8211; 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" /><img src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg" class="default-logo" alt="HTMLPAGE &#8211; 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" /></a>	
+	</div>
+
+</div></div><div data-column="middle" ><div data-items="" >
+<nav
+	id="header-menu-1"
+	class="header-menu-1"
+	data-id="menu" data-interaction="hover" 	data-menu="type-2:center"
+	data-dropdown="type-1:simple"		data-responsive="no"		aria-label="Header Menu">
+
+	<ul id="menu-main-menu" class="menu"><li id="menu-item-12140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-12140"><a href="https://htmlpage.cn/" class="ct-menu-link">首页</a></li>
+<li id="menu-item-12171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12171"><a href="/builder" class="ct-menu-link">网页构建器</a></li>
+<li id="menu-item-12401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12401"><a href="/template-list" class="ct-menu-link">模板</a></li>
+<li id="menu-item-12143" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-12143"><a href="https://htmlpage.cn/web-designs" class="ct-menu-link">设计</a></li>
+<li id="menu-item-12172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12172 animated-submenu"><a href="#" class="ct-menu-link">工具<span class="ct-toggle-dropdown-desktop"><svg class="ct-icon" width="8" height="8" viewBox="0 0 15 15"><path d="M2.1,3.2l5.4,5.4l5.4-5.4L15,4.3l-7.5,7.5L0,4.3L2.1,3.2z"/></svg></span></a><button class="ct-toggle-dropdown-desktop-ghost" aria-label="Expand dropdown menu" aria-expanded="false" ></button>
+<ul class="sub-menu">
+	<li id="menu-item-13517" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13517"><a href="https://bida.chat" class="ct-menu-link">AI写作助手</a></li>
+	<li id="menu-item-12890" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12890"><a href="/drawio/" class="ct-menu-link">在线做图(新)</a></li>
+	<li id="menu-item-12407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12407"><a href="https://oss.htmlpage.cn/color/index.html" class="ct-menu-link">图片拾色器</a></li>
+</ul>
+</li>
+<li id="menu-item-12445" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12445"><a href="https://htmlpage.cn/faqs" class="ct-menu-link">FAQ</a></li>
+</ul></nav>
+
+</div></div><div data-column="end" data-placements="1" ><div data-items="primary" >
+<div
+	class="ct-header-cta"
+	data-id="button" >
+
+	<a
+		href="/contact"
+		class="ct-button"
+		data-size="medium"
+		>
+		联系我们	</a>
+</div>
+
+</div></div></div></div></div></div></div><div data-device="mobile" ><div class="ct-sticky-container"><div data-sticky="shrink"><div data-row="middle" data-column-set="2" ><div class="ct-container" ><div data-column="start" data-placements="1" ><div data-items="primary" >
+<div	class="site-branding"
+	data-id="logo" 		>
+
+			<a href="https://htmlpage.cn/" class="site-logo-container" rel="home"><img src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg" class="sticky-logo" alt="HTMLPAGE &#8211; 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" /><img src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/03/logo-small-svg.svg" class="default-logo" alt="HTMLPAGE &#8211; 专业高效的在线HTML构建器|网页模板|网站模板|网页设计|网页开发|HTML生成工具|在线制作网页" /></a>	
+	</div>
+
+</div></div><div data-column="end" data-placements="1" ><div data-items="primary" >
+<button
+	data-toggle-panel="#offcanvas"
+	class="ct-header-trigger ct-toggle "
+	data-design="simple"
+	data-label="right"
+	aria-label="Open off canvas"
+	data-id="trigger" >
+
+	<span class="ct-label ct-hidden-sm ct-hidden-md ct-hidden-lg">菜单</span>
+
+	<svg
+		class="ct-icon"
+		width="18" height="14" viewBox="0 0 18 14"
+		aria-hidden="true"
+		data-type="type-1">
+
+		<rect y="0.00" width="18" height="1.7" rx="1"/>
+		<rect y="6.15" width="18" height="1.7" rx="1"/>
+		<rect y="12.3" width="18" height="1.7" rx="1"/>
+	</svg>
+</button>
+</div></div></div></div></div></div></div></header>
+	<main id="main" class="site-main" >
+
+		<div class="ct-container" data-vertical-spacing="top:bottom">
+	<section class="ct-no-results">
+
+		<section class="hero-section" data-type="type-1">
+			<header class="entry-header">
+				<h1 class="page-title" itemprop="headline">
+					哎呀! 不能找到该网页。	
+				</h1>
+
+				<div class="page-description">
+					看起来在这个地方什么也没找到。也许试着搜索其他东西?				</div>
+			</header>
+		</section>
+
+		<div class="entry-content">
+			
+
+<form
+	role="search" method="get"
+	class="search-form"
+	action="https://htmlpage.cn"
+	data-live-results="thumbs">
+
+	<input type="search"  placeholder="搜索" value="" name="s" data-swplive="true" data-swpengine="default" data-swpconfig="default" autocomplete="off" title="搜索输入" />
+
+	<button type="submit" class="search-submit" aria-label="Search button">
+		<svg class="ct-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15"><path d="M14.8,13.7L12,11c0.9-1.2,1.5-2.6,1.5-4.2c0-3.7-3-6.8-6.8-6.8S0,3,0,6.8s3,6.8,6.8,6.8c1.6,0,3.1-0.6,4.2-1.5l2.8,2.8c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C15.1,14.5,15.1,14,14.8,13.7z M1.5,6.8c0-2.9,2.4-5.2,5.2-5.2S12,3.9,12,6.8S9.6,12,6.8,12S1.5,9.6,1.5,6.8z"/></svg>
+		<span data-loader="circles"><span></span><span></span><span></span></span>
+	</button>
+
+	
+	
+</form>
+
+
+		</div>
+
+	</section>
+</div>
+	<section class="ct-trending-block ct-hidden-sm" >
+		<div class="ct-container" data-page="1">
+			<h3 class="ct-block-title">
+				最新模板
+				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+
+									<span class="ct-arrow-left">
+					</span>
+
+					<span class="ct-arrow-right">
+					</span>
+							</h3>
+
+			<a href="https://htmlpage.cn/templates/foot-website-template-1" ><div class="ct-image-container ct-lazy"><img width="150" height="150" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" data-ct-lazy="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/04/20220403153529659-150x150.jpg" data-object-fit="~" /><noscript><img width="150" height="150" src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/04/20220403153529659-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></noscript><span class="ct-ratio" style="padding-bottom: 100%"></span></div><span class="ct-item-title" >美食网站模板响应式网页模板</span></a><a href="https://htmlpage.cn/templates/fitness-room-template-1" ><div class="ct-image-container ct-lazy"><img width="150" height="150" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" data-ct-lazy="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2021/01/20220403155652735-150x150.jpg" data-object-fit="~" /><noscript><img width="150" height="150" src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2021/01/20220403155652735-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></noscript><span class="ct-ratio" style="padding-bottom: 100%"></span></div><span class="ct-item-title" >健身房网站模板响应式网页模板</span></a><a href="https://htmlpage.cn/templates/group-template-2" ><div class="ct-image-container ct-lazy"><img width="150" height="150" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" data-ct-lazy="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/04/20220403123417249-150x150.jpg" data-object-fit="~" /><noscript><img width="150" height="150" src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2022/04/20220403123417249-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></noscript><span class="ct-ratio" style="padding-bottom: 100%"></span></div><span class="ct-item-title" >企业网站模板单页面响应式网页模板</span></a><a href="https://htmlpage.cn/templates/cartoon-site-template-1" ><div class="ct-image-container ct-lazy"><img width="150" height="150" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" data-ct-lazy="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2021/01/20220331001731573-150x150.jpg" data-object-fit="~" /><noscript><img width="150" height="150" src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/2021/01/20220331001731573-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></noscript><span class="ct-ratio" style="padding-bottom: 100%"></span></div><span class="ct-item-title" >卡通主题网站模板响应式网页模板</span></a>
+		</div>
+	</section>
+
+		</main>
+
+	<footer class="ct-footer" data-id="type-1" ><div data-row="middle" ><div class="ct-container" data-columns-divider="md" ><div data-column="widget-area-1" data-link="none" ><div class="ct-widget widget_text" id="text-22"><h2 class="widget-title">隐私政策</h2>			<div class="textwidget entry-content"><ul>
+<li><a href="/site-privacy-policy">隐私政策</a></li>
+<li><a href="/cookie-policy">Cookies政策</a></li>
+<li><a href="/site-service-policy">服务与条款</a></li>
+<li><a href="/related-laws-and-regulations">相关法规</a></li>
+</ul>
+</div>
+		</div></div><div data-column="widget-area-2" data-link="none" ><div class="ct-widget widget_text" id="text-23"><h2 class="widget-title">常用工具</h2>			<div class="textwidget entry-content"><ul>
+<li><a href="/frontend-framework-top-3" target="_blank" rel="noopener">前端框架/库</a></li>
+<li><a href="/web-design-safe-colors" target="_blank" rel="noopener">网页安全色</a></li>
+<li><a href="https://oss.htmlpage.cn/color/index.html" target="_blank" rel="noopener">拾色器</a></li>
+</ul>
+</div>
+		</div></div><div data-column="widget-area-3" data-link="none" ><div class="ct-widget widget_text" id="text-24"><h2 class="widget-title">帮助中心</h2>			<div class="textwidget entry-content"><ul>
+<li><a href="/faqs">构建器使用</a></li>
+<li><a href="/faqs">常见问题</a></li>
+<li><a href="/contact">投诉举报</a></li>
+</ul>
+</div>
+		</div></div><div data-column="widget-area-4" data-link="none" ><div class="ct-widget widget_text" id="text-25"><h2 class="widget-title">关于我们</h2>			<div class="textwidget entry-content"><ul>
+<li><a href="/builder" target="_blank" rel="noopener">网页构建器</a></li>
+<li><a href="/contact" target="_blank" rel="noopener">商务合作</a></li>
+<li><a href="/contact">建议意见</a></li>
+</ul>
+</div>
+		</div></div><div data-column="widget-area-5" ><div class="ct-widget widget_text" id="text-26"><h2 class="widget-title">联系我们</h2>			<div class="textwidget entry-content"><p>手机: 137 9926 4013<br />
+邮箱: help@lapus.cn<br />
+留言: <a href="/contact">联系我们</a></p>
+</div>
+		</div><div class="ct-widget ct-socials-widget" id="blocksy_ct_socials-2"><h2 class="widget-title"></h2></div></div></div></div><div data-row="bottom" ><div class="ct-container" data-columns-divider="md:sm" ><div data-column="copyright" >
+<div
+	class="ct-footer-copyright"
+	data-id="copyright" >
+
+	<p><strong>免责声明</strong>：本站所有内容来源于互联网。如果本站部分内容侵犯您的权益，请您告知，我们会立即处理。</p>
+<p>网页模板是从国外大小网站收集而来，旨在帮助大家在工作或学习时提高效率、节省时间。</p>
+<p>站内所有资源仅供学习与参考，请勿用于商业用途，否则产生的一切后果将由您自己承担！</p>
+<p>&nbsp;</p>
+<p data-wp-editing="1">Copyright © 2023 版权所有 <a href="https://htmlpage.cn">HTMLPAGE.CN</a> - <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">闽ICP备19004108号-1</a>. <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021202000524" target="_blank" rel="noopener"><img src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/images/beian.png" /> </a><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021202000524" target="_blank" rel="noopener">闽公网安备 35021202000524号</a></p></div>
+</div></div></div></footer></div>
+
+        <style>
+            .searchwp-live-search-results {
+                opacity: 0;
+                transition: opacity .25s ease-in-out;
+                -moz-transition: opacity .25s ease-in-out;
+                -webkit-transition: opacity .25s ease-in-out;
+                height: 0;
+                overflow: hidden;
+                z-index: 9999995; /* Exceed SearchWP Modal Search Form overlay. */
+                position: absolute;
+                display: none;
+            }
+
+            .searchwp-live-search-results-showing {
+                display: block;
+                opacity: 1;
+                height: auto;
+                overflow: auto;
+            }
+
+            .searchwp-live-search-no-results {
+                padding: 3em 2em 0;
+                text-align: center;
+            }
+
+            .searchwp-live-search-no-min-chars:after {
+                content: "Continue typing";
+                display: block;
+                text-align: center;
+                padding: 2em 2em 0;
+            }
+        </style>
+                <script>
+            var _SEARCHWP_LIVE_AJAX_SEARCH_BLOCKS = true;
+            var _SEARCHWP_LIVE_AJAX_SEARCH_ENGINE = 'default';
+            var _SEARCHWP_LIVE_AJAX_SEARCH_CONFIG = 'default';
+        </script>
+        <script id='swp-live-search-client-js-extra'>
+var searchwp_live_search_params = [];
+searchwp_live_search_params = {"ajaxurl":"https:\/\/htmlpage.cn\/wp-admin\/admin-ajax.php","origin_id":0,"config":{"default":{"engine":"default","input":{"delay":300,"min_chars":3},"results":{"position":"bottom","width":"auto","offset":{"x":0,"y":5}},"spinner":{"lines":12,"length":8,"width":3,"radius":8,"scale":1,"corners":1,"color":"#424242","fadeColor":"transparent","speed":1,"rotate":0,"animation":"searchwp-spinner-line-fade-quick","direction":1,"zIndex":2000000000,"className":"spinner","top":"50%","left":"50%","shadow":"0 0 1px transparent","position":"absolute"}}},"msg_no_config_found":"No valid SearchWP Live Search configuration found!","aria_instructions":"When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures."};;
+</script>
+<script src='https://htmlpage.cn/wp-content/plugins/searchwp-live-ajax-search/assets/javascript/dist/script.min.js?ver=1.7.2' id='swp-live-search-client-js'></script>
+<script id='ct-scripts-js-extra'>
+var ct_localizations = {"ajax_url":"https:\/\/htmlpage.cn\/wp-admin\/admin-ajax.php","nonce":"85485bea6c","public_url":"https:\/\/htmlpage.cn\/wp-content\/themes\/blocksy\/static\/bundle\/","rest_url":"https:\/\/htmlpage.cn\/wp-json\/","search_url":"https:\/\/htmlpage.cn\/search\/QUERY_STRING","show_more_text":"\u663e\u793a\u66f4\u591a","more_text":"\u66f4\u591a","expand_submenu":"Expand dropdown menu","collapse_submenu":"Collapse dropdown menu","dynamic_js_chunks":[{"id":"blocksy_ext_trending","selector":".ct-trending-block [class*=\"ct-arrow\"]","url":"https:\/\/htmlpage.cn\/wp-content\/plugins\/blocksy-companion\/framework\/extensions\/trending\/static\/bundle\/main.js","trigger":"click"},{"id":"blocksy_dark_mode","selector":"[data-id=\"dark-mode-switcher\"]","url":"https:\/\/htmlpage.cn\/wp-content\/plugins\/blocksy-companion\/static\/bundle\/dark-mode.js","trigger":"click"},{"id":"blocksy_sticky_header","selector":"header [data-sticky]","url":"https:\/\/htmlpage.cn\/wp-content\/plugins\/blocksy-companion\/static\/bundle\/sticky.js"},{"id":"blocksy_lazy_load","selector":".ct-lazy[class*=\"ct-image\"]","url":"https:\/\/htmlpage.cn\/wp-content\/themes\/blocksy\/static\/bundle\/lazy-load.js"}],"dynamic_styles":{"lazy_load":"https:\/\/htmlpage.cn\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-styles.min.css","search_lazy":"https:\/\/htmlpage.cn\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-search-styles.min.css"},"dynamic_styles_selectors":[{"selector":"#account-modal","url":"https:\/\/htmlpage.cn\/wp-content\/plugins\/blocksy-companion\/static\/bundle\/account-lazy.min.css"}]};
+</script>
+<script src='https://htmlpage.cn/wp-content/themes/blocksy/static/bundle/main.js?ver=1.8.23' id='ct-scripts-js'></script>
+<script src='//template-1253409072.cos.ap-guangzhou.myqcloud.com/common/js/share.js?ver=6.2.2' id='wxcs-js'></script>
+	<script id="wxcs-script">
+	WX_Custom_Share = function(){
+		
+		var xhr = null;
+		var url = 'https://htmlpage.cn/wp-admin/admin-ajax.php';
+		var signature_url = window.location.href.split('#')[0];
+		var formData = {
+			action: 'wxcs_get_share_info',
+			type: 'other',
+			id: 'null',
+			signature_url: signature_url
+		};
+		
+		this.init = function(){
+			if( window.XMLHttpRequest ){
+				xhr = new XMLHttpRequest();
+			}
+			else if( window.ActiveXObject ){
+				xhr = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			
+			get_share_info();
+		};
+		
+		function formatPostData( obj ){
+			
+			var arr = new Array();
+			for (var attr in obj ){
+				arr.push( encodeURIComponent( attr ) + '=' + encodeURIComponent( obj[attr] ) );
+			}
+			
+			return arr.join( '&' );
+		}
+		
+		function get_share_info(){
+			
+			if( xhr == null ) return;
+			
+			xhr.onreadystatechange = function(){
+				if( xhr.readyState == 4 && xhr.status == 200 ){
+					
+					var data = eval('(' + xhr.responseText + ')');
+					
+					if( data == null ){
+						return;
+					}
+					
+					var info = {
+						title: data.title,
+						summary: data.desc,
+						pic: data.img,
+						url: data.url
+					};
+					
+					if( formData.type == 'other' ){
+						info.title = document.title;
+						info.summary = location.href;
+						info.url = location.href;
+					}
+					
+					if( data.use_actual_url == true ){
+						info.url = location.href;
+					}
+
+					if( data.error ){
+						console.error( '自定义微信分享: ', data.error );
+					}
+					else if( data.appid ){
+						info.WXconfig = {
+							swapTitleInWX: data.swapTitleInWX,
+							appId: data.appid,
+							timestamp: data.timestamp,
+							nonceStr: data.nonceStr,
+							signature: data.signature
+						};
+					}
+					
+					setShareInfo( info );
+				}
+			};
+			
+			xhr.open( 'POST', url, true);
+			xhr.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+			xhr.send( formatPostData( formData ) );
+		}
+	};
+	
+	new WX_Custom_Share().init();
+	</script>
+	
+</body>
+</html>
