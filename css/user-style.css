@@ -2,9 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-}
 
 * {
     box-sizing: border-box;
@@ -18,6 +15,13 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
 }
 
+#is2d{
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:fixed;
+    background-size:auto;
+    background-image:url('https://static.htmlpage.cn/editor/images/assets/bg4.jpg');
+  }
 .logo path {
     pointer-events: none;
     fill: none;
