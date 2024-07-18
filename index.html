@@ -1,108 +1,73 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Iris's homepage </title>
+    <meta charset="UTF-8">
+    <title>Educational Resources</title>
     <link rel="shortcut icon" href="img/bg1.jpg">
     <style>
-      @font-face {
-        font-family: Unicons;
-        src: url(fonts/Unicons.woff2) format("woff2"), url(fonts/Unicons.woff) format("woff");
-        font-weight: 400;
-        font-style: normal;
-        font-display: block
-      }
-
-      @font-face {
-        font-family: Custom;
-        src: url(fonts/Custom.woff2) format("woff2"), url(fonts/Custom.woff) format("woff");
-      }
-
-      .img-mask.mask-1 img {
-        -webkit-mask-image: url(img/blob.svg) !important;
-        mask-image: url(img/blob.svg) !important;
-      }
-
-      .img-mask.mask-2 img {
-        -webkit-mask-image: url(img/hex.svg) !important;
-        mask-image: url(img/hex.svg) !important;
-      }
-
-      .img-mask.mask-3 img {
-        -webkit-mask-image: url(img/blob2.svg) !important;
-        mask-image: url(img/blob2.svg) !important;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .module {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+        }
+        .module h2 {
+            margin-top: 0;
+        }
+        .module a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .module a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <link rel="stylesheet" href="css/user-style.css"/>
-  </head>
-
-   <body id="is2d">
-      <div>
-        <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="css/user-style.css"/>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
-        <link rel="stylesheet" href="css/templatemo-softy-pinko.css"/>
-        
-        <!-- ***** Header Area Start ***** -->
-        <!-- ***** Header Area End ***** -->
-        <!-- ***** Welcome Area Start ***** -->
-        <div id="welcome" class="welcome-area">
-          <!-- ***** Header Text Start ***** -->
-          <img src="img/bg1.jpg" class="c10714"/>
-          <div class="header-text">
-            <div class="container">
-              <div class="row">
-                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                  <h1>AP Statistics</h1>
-                  <p>You can use all resources in this website for free.</p>
-                </div>
-              </div>
-            </div>
-          </div><!-- ***** Header Text End ***** -->       
-        </div><!-- ***** Welcome Area End ***** -->
-        <!-- ***** Features Small Start ***** -->
-        <section class="section home-feature">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="row">
-                  <!-- ***** Features Small Item Start ***** -->
-                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s" class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="features-small-item"><img src="img/bg3.jpg" class="c8120"/>
-                      <a href="https://iriswang5.github.io/slides.html"> Slides and Handouts </a>
-                      <a class="c11817"></a>
-                    </div>
-                  </div><!-- ***** Features Small Item End ***** -->
-                  <!-- ***** Features Small Item Start ***** -->
-                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s" class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="features-small-item"><img src="img/bg3.jpg" class="c7892"/>
-                      <a href="https://iriswang5.github.io/PracticeQuestions.html"> Practice Questions </a>
-                      <a class="c11817"></a>
-                    </div>
-                  </div><!-- ***** Features Small Item End ***** -->
-                  <!-- ***** Features Small Item Start ***** -->
-                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s" class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="features-small-item"><img src="img/bg3.jpg"  class="c7892"/>
-                      <a href="https://iriswang5.github.io/UsefulWebsites.html"> Project & Useful Websites </a>
-                      <a class="c11817"></a>
-                    </div>
-                  </div><!-- ***** Features Small Item End ***** -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="counter"></section>
-        <script src="js/jquery-2.1.0.min.js"></script><!-- Bootstrap -->
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script><!-- Plugins -->
-        <script src="js/scrollreveal.min.js"></script>
-        <script src="js/waypoints.min.js"></script>
-        <script src="js/jquery.counterup.min.js"></script>
-        <script src="js/imgfix.min.js"></script><!-- Global Init -->
-        <script src="js/custom.js"></script>
-      </div>
-    </body>
-  <html>
+</head>
+<body>
+    <h1>Educational Resources</h1>
+    <div class="container">
+        <div class="module">
+            <h2>BC</h2>
+            <a href="bc_page1.html">BC Page 1</a>
+            <a href="bc_page2.html">BC Page 2</a>
+            <a href="bc_page3.html">BC Page 3</a>
+            <a href="bc_page4.html">BC Page 4</a>
+        </div>
+        <div class="module">
+            <h2>AP STA</h2>
+            <a href="apsta_page1.html">AP STA Page 1</a>
+            <a href="apsta_page2.html">AP STA Page 2</a>
+            <a href="apsta_page3.html">AP STA Page 3</a>
+            <a href="apsta_page4.html">AP STA Page 4</a>
+        </div>
+        <div class="module">
+            <h2>PRECAL</h2>
+            <a href="precal_page1.html">PRECAL Page 1</a>
+            <a href="precal_page2.html">PRECAL Page 2</a>
+            <a href="precal_page3.html">PRECAL Page 3</a>
+            <a href="precal_page4.html">PRECAL Page 4</a>
+        </div>
+        <div class="module">
+            <h2>Others</h2>
+            <a href="others_page1.html">Others Page 1</a>
+            <a href="others_page2.html">Others Page 2</a>
+            <a href="others_page3.html">Others Page 3</a>
+            <a href="others_page4.html">Others Page 4</a>
+        </div>
+    </div>
+</body>
+</html>
