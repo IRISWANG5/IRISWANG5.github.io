@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .course {
+            margin-bottom: 20px;
+        }
+        .course-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .course-content {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-content li {
+            margin: 10px 0;
+        }
+        .course-content a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        .course-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>课程网站</h1>
+
+        <div class="course">
+            <div class="course-title">数学</div>
+            <ul class="course-content">
+                <li><a href="#">讲义</a></li>
+                <li><a href="#">作业</a></li>
+                <li><a href="#">考试</a></li>
+            </ul>
+        </div>
+
+        <div class="course">
+            <div class="course-title">语文</div>
+            <ul class="course-content">
+                <li><a href="#">讲义</a></li>
+                <li><a href="#">作业</a></li>
+                <li><a href="#">考试</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
