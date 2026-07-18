@@ -1,29 +1,134 @@
+:root {
+    --ink: #17202a;
+    --muted: #5a6673;
+    --line: #d8e0e8;
+    --paper: rgba(255, 255, 255, 0.94);
+    --soft: #f5f8fb;
+    --accent: #2474b5;
+    --accent-strong: #135c94;
+    --shadow: 0 18px 48px rgba(25, 44, 68, 0.16);
+}
+
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-}
-
+body,
 #is2d {
-    background-repeat: repeat;
-    background-position: left top;
-    background-attachment: fixed;
-    background-size: auto;
-    background-image: url('https://static.htmlpage.cn/editor/images/assets/bg4.jpg');
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    color: var(--ink);
+    background:
+        linear-gradient(115deg, rgba(8, 28, 48, 0.78), rgba(18, 82, 109, 0.48)),
+        url("../img/bg3.jpg") center / cover fixed no-repeat;
 }
 
-* {
-    box-sizing: border-box;
+#topsection {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 24px 0 0;
 }
 
-body {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+#topsection::before {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    padding: 9px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    content: "Iris's Learning Hub";
+    font-weight: 800;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: min(1120px, calc(100% - 32px));
+    margin: 24px auto;
+    padding: 0;
+}
+
+.col {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+}
+
+.col > strong,
+.col > strong em {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--ink);
+    font-size: 24px;
+    font-style: normal;
+}
+
+.boxtitle {
+    margin: 0 0 16px;
+    color: var(--ink);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+ul {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    line-height: 1.55;
+}
+
+li strong {
+    display: inline-flex;
+    margin: 12px 0 4px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    color: var(--accent-strong);
+    background: #e8f2fb;
+}
+
+a {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    margin: 4px 0;
+    padding: 9px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--accent-strong);
+    background: var(--soft);
+    text-decoration: none;
+}
+
+a:hover {
+    border-color: #9fc6e5;
+    background: #edf6fc;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+li > img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.65;
 }
 
 .logo path {
@@ -34,84 +139,60 @@ body {
     stroke: rgb(255, 255, 255);
 }
 
-.wechat-group img {
-    max-width: 220px;
-    height: auto;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    width: 100%;
-}
-
+.wechat-group img,
 .welcome-img img {
+    display: block;
     width: 100%;
     max-width: 280px;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
 .footer-1 .media-container-row {
-    padding-top: 10px;
-    padding-right: 0px;
-    padding-bottom: 10px;
-    padding-left: 0px;
     width: 100%;
+    padding: 10px 0;
     color: rgb(122, 122, 122);
 }
 
 .footer-1 a {
     color: rgb(255, 255, 255);
-    text-decoration-line: none;
-    text-decoration-thickness: initial;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-}
-
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    text-decoration: none;
 }
 
 .footer-1 .mbr-text {
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
-}
-
-.row {
-    display: table;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    width: 100%;
-}
-
-.col {
-    background-image: url('https://static.htmlpage.cn/editor/images/assets/bg4.jpg');
 }
 
 .img-mask.mask-1 img {
-    -webkit-mask-image: url("img/blob.svg") !important;
+    -webkit-mask-image: url("../img/blob.svg") !important;
+    mask-image: url("../img/blob.svg") !important;
 }
 
 .img-mask.mask-2 img {
-    -webkit-mask-image: url("img/hex.svg") !important;
+    -webkit-mask-image: url("../img/hex.svg") !important;
+    mask-image: url("../img/hex.svg") !important;
 }
 
 .img-mask.mask-3 img {
-    -webkit-mask-image: url("img/blob2.svg") !important;
+    -webkit-mask-image: url("../img/blob2.svg") !important;
+    mask-image: url("../img/blob2.svg") !important;
 }
 
 @font-face {
-    font-family:Unicons;src:url("fonts/Unicons.woff2") format("woff2"), url("fonts/Unicons.woff") format("woff");font-weight:400;font-style:normal;font-display:block;
+    font-family: Unicons;
+    src: url("../fonts/Unicons.woff2") format("woff2"), url("../fonts/Unicons.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
 }
 
 @font-face {
-    font-family:Custom;src:url("fonts/Custom.woff2") format("woff2"), url("fonts/Custom.woff") format("woff");
+    font-family: Custom;
+    src: url("../fonts/Custom.woff2") format("woff2"), url("../fonts/Custom.woff") format("woff");
+}
+
+@media (max-width: 820px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
 }
