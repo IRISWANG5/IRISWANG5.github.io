@@ -1,96 +1,226 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title> Iris's Homepage </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Iris's AP Calculus, AP Statistics and AP Precalculus learning resources.">
+    <title>Iris's Learning Hub</title>
     <link rel="shortcut icon" href="img/bg1.jpg">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-image: url('img/bg3.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #fff;
-}
-
-        h1 {
-            margin-top: 40px; 
-        }
-        .container {
-            padding: 20px;
-        }
-        .module {
-            display: inline-block;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            width: 200px;
-            height: 250px;
-            vertical-align: top;
-            box-sizing: border-box;
-            background-color: #fff;
-            color: #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
-        }
-
-        .module h2 {
-            margin-top: 0;
-        }
-        .module a {
-            display: block;
-            margin: 10px 0;
-            text-decoration: none;
-            color: #007BFF;
-        }
-        .module a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="css/homepage.css">
 </head>
-
-
 <body>
-    <h1>Welcome to Iris's Homepage!</h1>
-    <div class="container">
-        <div class="module">
-            <h2>AP Calculus BC</h2>
-            <a href="https://iriswang5.github.io/bc_handout.html">Handout</a>
-            <a href="https://iriswang5.github.io/bc_practice.html">Practice Questions</a>
-            <a href="https://iriswang5.github.io/bc_slides.html">Slides</a>
-            <a href="https://iriswang5.github.io/bc_project.html">Project Month</a>
-         </div>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="返回首页">
+            <span class="brand-mark">I</span>
+            <span>
+                <strong>Iris's Learning Hub</strong>
+                <small>AP 数学与统计资源中心</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="#courses">课程</a>
+            <a href="#study-space">学习记录</a>
+            <a href="#ai-helper">AI 答疑</a>
+        </nav>
+    </header>
 
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Course resources, practice, slides and projects</p>
+                <h1>把课程资料、练习入口和答疑工具放在一个更好找的位置。</h1>
+                <p class="hero-text">选择课程后可以直接进入讲义、练习和课件；页面会自动保存最近访问与收藏，方便学生下次继续学习。</p>
+                <div class="hero-actions">
+                    <a class="primary-action" href="#courses">浏览课程</a>
+                    <a class="secondary-action" href="#ai-helper">去提问</a>
+                </div>
+            </div>
+            <aside class="hero-panel" aria-label="网站概览">
+                <div>
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">AP Courses</span>
+                </div>
+                <div>
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Resource Entrances</span>
+                </div>
+                <div>
+                    <span class="stat-number">Local</span>
+                    <span class="stat-label">History & Favorites</span>
+                </div>
+            </aside>
+        </section>
 
-        <div class="module">
-            <h2>AP Statistics</h2>
-            <a href="apsta_handout.html">Handout</a>
-            <a href="apsta_practice.html">Practice Questions</a>
-            <a href="apsta_resource.html">Useful Resources</a>
-            <a href="apsta_project.html">Project Month</a>
-        </div>
+        <section class="section-grid" id="courses" aria-labelledby="courses-title">
+            <div class="section-heading">
+                <p class="eyebrow">Courses</p>
+                <h2 id="courses-title">课程入口</h2>
+                <p>每个课程卡片保留常用资源入口，并支持收藏。最近打开的链接会保存在本机浏览器。</p>
+            </div>
 
+            <div class="course-grid">
+                <article class="course-card" data-course="AP Calculus BC">
+                    <div class="card-topline">
+                        <span class="course-tag">Calculus</span>
+                        <button class="favorite-button" type="button" aria-label="收藏 AP Calculus BC" data-favorite="AP Calculus BC">☆</button>
+                    </div>
+                    <h3>AP Calculus BC</h3>
+                    <p>Limits, differentiation, integration, series and exam review.</p>
+                    <div class="resource-list">
+                        <a href="bc_handout.html" data-track="AP Calculus BC / Handout">Handout</a>
+                        <a href="bc_practice.html" data-track="AP Calculus BC / Practice Questions">Practice Questions</a>
+                        <a href="bc_slides.html" data-track="AP Calculus BC / Slides">Slides</a>
+                        <a href="bc_project.html" data-track="AP Calculus BC / Project Month">Project Month</a>
+                    </div>
+                </article>
 
-        <div class="module">
-            <h2>AP Precalculus</h2>
-            <a href="precal_handout.html">Handout</a>
-            <a href="precal_practice.html">Practice Questions</a>
-            <a href="precal_resource">Useful Resources</a>
-        </div>
+                <article class="course-card" data-course="AP Statistics">
+                    <div class="card-topline">
+                        <span class="course-tag">Statistics</span>
+                        <button class="favorite-button" type="button" aria-label="收藏 AP Statistics" data-favorite="AP Statistics">☆</button>
+                    </div>
+                    <h3>AP Statistics</h3>
+                    <p>Data, probability, inference, projects and useful classroom resources.</p>
+                    <div class="resource-list">
+                        <a href="apsta_handout.html" data-track="AP Statistics / Handout">Handout</a>
+                        <a href="apsta_practice.html" data-track="AP Statistics / Practice Questions">Practice Questions</a>
+                        <a href="apsta_resource.html" data-track="AP Statistics / Useful Resources">Useful Resources</a>
+                        <a href="apsta_project.html" data-track="AP Statistics / Project Month">Project Month</a>
+                    </div>
+                </article>
 
-       <div class="module">
-            <h2>网页制作</h2>
-            <a href="pdf/搭建网页.pptx"download>开始是成功的第一步--怎么搭建网页</a>
-            <a href="pdf/index.txt"download>可供复制粘贴的网页代码示例</a>
-            <a href="#">如何上传文件</a>
-            <a href="#">待更新</a>
-         </div>
+                <article class="course-card" data-course="AP Precalculus">
+                    <div class="card-topline">
+                        <span class="course-tag">Precalculus</span>
+                        <button class="favorite-button" type="button" aria-label="收藏 AP Precalculus" data-favorite="AP Precalculus">☆</button>
+                    </div>
+                    <h3>AP Precalculus</h3>
+                    <p>Functions, modeling, trigonometry and course practice materials.</p>
+                    <div class="resource-list">
+                        <a href="precal_handout.html" data-track="AP Precalculus / Handout">Handout</a>
+                        <a href="precal_practice.html" data-track="AP Precalculus / Practice Questions">Practice Questions</a>
+                        <a href="precal_resource.html" data-track="AP Precalculus / Useful Resources">Useful Resources</a>
+                    </div>
+                </article>
 
-     </div>
+                <article class="course-card maker-card" data-course="网页制作">
+                    <div class="card-topline">
+                        <span class="course-tag">Website</span>
+                        <button class="favorite-button" type="button" aria-label="收藏 网页制作" data-favorite="网页制作">☆</button>
+                    </div>
+                    <h3>网页制作</h3>
+                    <p>给学生准备的网页搭建、示例代码和文件上传说明。</p>
+                    <div class="resource-list">
+                        <a href="pdf/搭建网页.pptx" download data-track="网页制作 / 搭建网页 PPT">搭建网页 PPT</a>
+                        <a href="pdf/index.txt" download data-track="网页制作 / 示例代码">示例代码</a>
+                        <a href="pdf/跳转另一个网页.docx" data-track="网页制作 / 跳转网页说明">跳转网页说明</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="workspace" id="study-space" aria-labelledby="study-title">
+            <div class="section-heading">
+                <p class="eyebrow">Storage</p>
+                <h2 id="study-title">本地学习记录</h2>
+                <p>收藏、最近访问和草稿都会保存在当前浏览器的 localStorage 中，不会上传到服务器。</p>
+            </div>
+            <div class="workspace-grid">
+                <article class="storage-panel">
+                    <h3>收藏课程</h3>
+                    <div class="empty-state" id="favoriteEmpty">还没有收藏课程。</div>
+                    <ul class="saved-list" id="favoriteList"></ul>
+                </article>
+                <article class="storage-panel">
+                    <h3>最近访问</h3>
+                    <div class="empty-state" id="recentEmpty">打开任意资源后会出现在这里。</div>
+                    <ul class="saved-list" id="recentList"></ul>
+                    <button class="text-button" id="clearRecent" type="button">清空最近访问</button>
+                </article>
+                <article class="storage-panel note-panel">
+                    <h3>学习草稿</h3>
+                    <textarea id="studyNote" rows="8" placeholder="记录今天要复习的知识点、错题编号或课堂提醒。"></textarea>
+                    <p id="noteStatus" class="status-line">草稿会自动保存。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="ai-section" id="ai-helper" aria-labelledby="ai-title">
+            <div class="section-heading">
+                <p class="eyebrow">AI Q&A</p>
+                <h2 id="ai-title">AI 答疑功能区</h2>
+                <p>默认使用内置学习提示离线回答；如学校已有自己的 AI 接口，可填入接口地址，页面会把问题发送到该接口。</p>
+            </div>
+            <div class="ai-layout">
+                <form class="ask-panel" id="askForm">
+                    <label for="questionInput">学生问题</label>
+                    <textarea id="questionInput" rows="7" placeholder="例如：什么时候用 t interval？怎样判断 series convergence？"></textarea>
+
+                    <div class="settings-row">
+                        <label for="courseSelect">课程</label>
+                        <select id="courseSelect">
+                            <option>AP Calculus BC</option>
+                            <option>AP Statistics</option>
+                            <option>AP Precalculus</option>
+                            <option>网页制作</option>
+                        </select>
+                    </div>
+
+                    <details class="api-settings">
+                        <summary>连接 DeepSeek 或自己的 AI 接口</summary>
+                        <div class="settings-row stacked-row">
+                            <label for="providerSelect">模式</label>
+                            <select id="providerSelect">
+                                <option value="local">本地提示</option>
+                                <option value="deepseek">DeepSeek API</option>
+                                <option value="custom">自定义接口</option>
+                            </select>
+                        </div>
+                        <div class="provider-fields" id="deepseekFields">
+                            <label for="deepseekKey">DeepSeek API Key</label>
+                            <input id="deepseekKey" type="password" autocomplete="off" placeholder="sk-...">
+                            <label for="deepseekModel">模型</label>
+                            <select id="deepseekModel">
+                                <option value="deepseek-chat">deepseek-chat</option>
+                                <option value="deepseek-reasoner">deepseek-reasoner</option>
+                            </select>
+                            <p>Key 只保存在当前浏览器，不会写入网页文件。公开站点建议改用后端代理保护密钥。</p>
+                        </div>
+                        <div class="provider-fields" id="customFields">
+                            <label for="apiEndpoint">接口地址</label>
+                            <input id="apiEndpoint" type="url" placeholder="https://your-domain.example/ask">
+                            <p>接口需要接收 JSON：<code>{ question, course }</code>，并返回 <code>{ answer }</code>。</p>
+                        </div>
+                    </details>
+
+                    <div class="ask-actions">
+                        <button class="primary-action" type="submit">生成答疑建议</button>
+                        <button class="secondary-action" id="clearQuestion" type="button">清空</button>
+                    </div>
+                </form>
+
+                <article class="answer-panel" aria-live="polite">
+                    <div class="answer-header">
+                        <h3>回答建议</h3>
+                        <span id="answerMode">Local helper</span>
+                    </div>
+                    <div id="answerOutput" class="answer-output">
+                        请输入问题。这里会给出解题思路、检查清单和下一步建议。
+                    </div>
+                    <div class="prompt-chips" aria-label="示例问题">
+                        <button type="button" data-prompt="AP Statistics 中 confidence interval 和 hypothesis test 怎么区分？">统计：区间还是检验？</button>
+                        <button type="button" data-prompt="AP Calculus BC 中 alternating series test 的步骤是什么？">BC：交错级数</button>
+                        <button type="button" data-prompt="网页里怎样链接到另一个 html 文件？">网页：链接页面</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Iris's Learning Hub. Resources are for classroom learning.</p>
+    </footer>
+
+    <script src="js/homepage.js"></script>
 </body>
 </html>
