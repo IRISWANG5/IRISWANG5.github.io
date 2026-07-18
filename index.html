@@ -14,48 +14,21 @@
             <span class="brand-mark">I</span>
             <span>
                 <strong>Iris's Learning Hub</strong>
-                <small>AP 数学与统计资源中心</small>
+                <small>课程入口</small>
             </span>
         </a>
         <nav class="top-nav" aria-label="主导航">
             <a href="#courses">课程</a>
-            <a href="#study-space">学习记录</a>
+            <a href="#study-space">记录</a>
             <a href="#ai-helper">AI 答疑</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-copy">
-                <p class="eyebrow">Course resources, practice, slides and projects</p>
-                <h1>选择课程，直接开始学习。</h1>
-                <p class="hero-text">讲义、练习、课件和 AI 答疑都在这里，打开即可使用。</p>
-                <div class="hero-actions">
-                    <a class="primary-action" href="#courses">浏览课程</a>
-                    <a class="secondary-action" href="#ai-helper">去提问</a>
-                </div>
-            </div>
-            <aside class="hero-panel" aria-label="网站概览">
-                <div>
-                    <span class="stat-number">3</span>
-                    <span class="stat-label">AP Courses</span>
-                </div>
-                <div>
-                    <span class="stat-number">12+</span>
-                    <span class="stat-label">Resource Entrances</span>
-                </div>
-                <div>
-                    <span class="stat-number">Local</span>
-                    <span class="stat-label">History & Favorites</span>
-                </div>
-            </aside>
-        </section>
-
-        <section class="section-grid" id="courses" aria-labelledby="courses-title">
-            <div class="section-heading">
+        <section class="section-grid course-home" id="courses" aria-labelledby="courses-title">
+            <div class="section-heading compact-heading">
                 <p class="eyebrow">Courses</p>
-                <h2 id="courses-title">课程入口</h2>
-                <p>每个课程卡片保留常用资源入口，并支持收藏。最近打开的链接会保存在本机浏览器。</p>
+                <h1 id="courses-title">选择课程</h1>
             </div>
 
             <div class="course-grid">
@@ -64,7 +37,7 @@
                         <span class="course-tag">Calculus</span>
                         <button class="favorite-button" type="button" aria-label="收藏 AP Calculus BC" data-favorite="AP Calculus BC">☆</button>
                     </div>
-                    <h3>AP Calculus BC</h3>
+                    <h2>AP Calculus BC</h2>
                     <p>Limits, differentiation, integration, series and exam review.</p>
                     <div class="resource-list">
                         <a href="bc_handout.html" data-track="AP Calculus BC / Handout">Handout</a>
@@ -79,7 +52,7 @@
                         <span class="course-tag">Statistics</span>
                         <button class="favorite-button" type="button" aria-label="收藏 AP Statistics" data-favorite="AP Statistics">☆</button>
                     </div>
-                    <h3>AP Statistics</h3>
+                    <h2>AP Statistics</h2>
                     <p>Data, probability, inference, projects and useful classroom resources.</p>
                     <div class="resource-list">
                         <a href="apsta_handout.html" data-track="AP Statistics / Handout">Handout</a>
@@ -94,7 +67,7 @@
                         <span class="course-tag">Precalculus</span>
                         <button class="favorite-button" type="button" aria-label="收藏 AP Precalculus" data-favorite="AP Precalculus">☆</button>
                     </div>
-                    <h3>AP Precalculus</h3>
+                    <h2>AP Precalculus</h2>
                     <p>Functions, modeling, trigonometry and course practice materials.</p>
                     <div class="resource-list">
                         <a href="precal_handout.html" data-track="AP Precalculus / Handout">Handout</a>
@@ -108,8 +81,8 @@
                         <span class="course-tag">Website</span>
                         <button class="favorite-button" type="button" aria-label="收藏 网页制作" data-favorite="网页制作">☆</button>
                     </div>
-                    <h3>网页制作</h3>
-                    <p>给学生准备的网页搭建、示例代码和文件上传说明。</p>
+                    <h2>网页制作</h2>
+                    <p>网页搭建、示例代码和文件上传说明。</p>
                     <div class="resource-list">
                         <a href="pdf/搭建网页.pptx" download data-track="网页制作 / 搭建网页 PPT">搭建网页 PPT</a>
                         <a href="pdf/index.txt" download data-track="网页制作 / 示例代码">示例代码</a>
@@ -122,8 +95,8 @@
         <section class="workspace" id="study-space" aria-labelledby="study-title">
             <div class="section-heading">
                 <p class="eyebrow">Storage</p>
-                <h2 id="study-title">本地学习记录</h2>
-                <p>收藏、最近访问和草稿都会保存在当前浏览器的 localStorage 中，不会上传到服务器。</p>
+                <h2 id="study-title">学习记录</h2>
+                <p>收藏、最近访问和草稿会保存在当前浏览器。</p>
             </div>
             <div class="workspace-grid">
                 <article class="storage-panel">
@@ -148,8 +121,8 @@
         <section class="ai-section" id="ai-helper" aria-labelledby="ai-title">
             <div class="section-heading">
                 <p class="eyebrow">AI Q&A</p>
-                <h2 id="ai-title">AI 答疑功能区</h2>
-                <p>默认使用内置学习提示离线回答；如学校已有自己的 AI 接口，可填入接口地址，页面会把问题发送到该接口。</p>
+                <h2 id="ai-title">AI 答疑</h2>
+                <p>输入问题后获取解题思路。可以使用本地提示，也可以连接 DeepSeek。</p>
             </div>
             <div class="ai-layout">
                 <form class="ask-panel" id="askForm">
@@ -184,12 +157,12 @@
                                 <option value="deepseek-chat">deepseek-chat</option>
                                 <option value="deepseek-reasoner">deepseek-reasoner</option>
                             </select>
-                            <p>Key 只保存在当前浏览器，不会写入网页文件。公开站点建议改用后端代理保护密钥。</p>
+                            <p>Key 只保存在当前浏览器，不会写入网页文件。</p>
                         </div>
                         <div class="provider-fields" id="customFields">
                             <label for="apiEndpoint">接口地址</label>
                             <input id="apiEndpoint" type="url" placeholder="https://your-domain.example/ask">
-                            <p>接口需要接收 JSON：<code>{ question, course }</code>，并返回 <code>{ answer }</code>。</p>
+                            <p>接口接收 JSON：<code>{ question, course }</code>，返回 <code>{ answer }</code>。</p>
                         </div>
                     </details>
 

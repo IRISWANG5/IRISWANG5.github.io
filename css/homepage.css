@@ -108,32 +108,7 @@ textarea {
 main {
     width: min(1180px, calc(100% - 32px));
     margin: 0 auto;
-}
-
-.hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-    gap: 28px;
-    min-height: calc(100vh - 76px);
-    align-items: center;
-    padding: 68px 0 46px;
-    color: #ffffff;
-}
-
-.hero-copy h1 {
-    max-width: 780px;
-    margin: 0;
-    font-size: clamp(38px, 6vw, 72px);
-    line-height: 1.06;
-    letter-spacing: 0;
-}
-
-.hero-text {
-    max-width: 680px;
-    margin: 22px 0 0;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 19px;
-    line-height: 1.8;
+    padding-top: 24px;
 }
 
 .eyebrow {
@@ -145,7 +120,6 @@ main {
     text-transform: uppercase;
 }
 
-.hero-actions,
 .ask-actions {
     display: flex;
     flex-wrap: wrap;
@@ -190,38 +164,6 @@ main {
     background: rgba(255, 255, 255, 0.24);
 }
 
-.hero-panel {
-    display: grid;
-    gap: 14px;
-    padding: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(16px);
-}
-
-.hero-panel div {
-    padding: 18px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.14);
-}
-
-.stat-number,
-.stat-label {
-    display: block;
-}
-
-.stat-number {
-    font-size: 32px;
-    font-weight: 800;
-}
-
-.stat-label {
-    margin-top: 4px;
-    color: rgba(255, 255, 255, 0.76);
-}
-
 .section-grid,
 .workspace,
 .ai-section {
@@ -232,11 +174,24 @@ main {
     box-shadow: var(--shadow);
 }
 
+.course-home {
+    min-height: calc(100vh - 128px);
+}
+
 .section-heading {
     max-width: 720px;
     margin-bottom: 24px;
 }
 
+.compact-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: none;
+}
+
+.section-heading h1,
 .section-heading h2 {
     margin: 0;
     font-size: clamp(28px, 4vw, 42px);
@@ -315,6 +270,7 @@ main {
     border-color: #f2d28d;
 }
 
+.course-card h2,
 .course-card h3 {
     margin: 20px 0 10px;
     font-size: 24px;
@@ -568,7 +524,6 @@ main {
 
 @media (max-width: 760px) {
     .site-header,
-    .hero,
     .card-topline,
     .settings-row {
         align-items: flex-start;
@@ -579,14 +534,16 @@ main {
         flex-direction: column;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: 48px;
-    }
-
     .course-grid {
         grid-template-columns: 1fr;
+    }
+
+    .course-home {
+        min-height: auto;
+    }
+
+    .compact-heading {
+        display: block;
     }
 
     .settings-row {
