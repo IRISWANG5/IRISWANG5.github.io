@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Limit Laws with Epsilon-Delta Proofs</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --ink: #111827;
+      --muted: #5d6b82;
+      --line: #d8e1ee;
+      --panel: #f5f8fc;
+      --panel-strong: #edf4ff;
+      --accent: #1e63b6;
+      --accent-dark: #164a87;
+      --proof: #fbfcff;
+      --warning: #fff7ed;
+      --warning-line: #fed7aa;
+      --shadow: 0 18px 45px rgba(30, 56, 90, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, "Noto Sans SC", sans-serif;
+      line-height: 1.55;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 38px 0 70px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #b8c9df;
+      border-radius: 8px;
+      color: var(--accent);
+      background: #f7fbff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-style: italic;
+      flex: 0 0 auto;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .brand p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 12px;
+      cursor: pointer;
+      transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      border-color: #9bb3d0;
+      color: var(--accent-dark);
+      background: #f7fbff;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 28px;
+      align-items: stretch;
+      padding: 34px 0 20px;
+    }
+
+    .assumption {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .assumption .lead {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3vw, 37px);
+      line-height: 1.25;
+    }
+
+    .assumption .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #f7fbff;
+      padding: 18px 20px;
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .note strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .law-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .law-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(30, 56, 90, 0.07);
+      overflow: hidden;
+    }
+
+    .law-head {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 220px;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 24px;
+    }
+
+    .letter {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--panel-strong);
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .formula {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.35;
+      min-width: 0;
+    }
+
+    .law-tag {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    details {
+      border-top: 1px solid var(--line);
+      background: var(--proof);
+    }
+
+    summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 24px;
+      cursor: pointer;
+      color: var(--accent-dark);
+      font-weight: 750;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chevron {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      border: 1px solid #c9d7e9;
+      color: var(--accent);
+      transition: transform 180ms ease, background 180ms ease;
+      flex: 0 0 auto;
+    }
+
+    details[open] .chevron {
+      transform: rotate(180deg);
+      background: #edf4ff;
+    }
+
+    .proof-body {
+      padding: 0 24px 24px 88px;
+      color: #26364f;
+      display: grid;
+      gap: 12px;
+    }
+
+    .proof-body p {
+      margin: 0;
+    }
+
+    .steps {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini {
+      border: 1px solid #dce6f3;
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .mini h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--accent-dark);
+    }
+
+    details.inline-example {
+      border-top: 1px solid var(--warning-line);
+      background: var(--warning);
+    }
+
+    details.inline-example summary {
+      color: #9a4d00;
+    }
+
+    .example-body {
+      padding: 0 24px 24px 88px;
+      color: #3d2a12;
+      display: grid;
+      gap: 14px;
+    }
+
+    .theorem-box {
+      border: 1px solid #f6c88e;
+      background: #fffdf8;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .theorem-box h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #7c3b00;
+    }
+
+    .example {
+      margin-top: 26px;
+      border: 1px solid var(--warning-line);
+      background: var(--warning);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .example h2 {
+      margin: 0 0 14px;
+      font-size: clamp(22px, 2.4vw, 32px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .example-box {
+      border: 1px solid #f6c88e;
+      background: #fffdf8;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .example-box h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 24px, 720px);
+        padding-top: 22px;
+      }
+
+      .topbar,
+      .intro {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .law-head {
+        grid-template-columns: 42px minmax(0, 1fr);
+      }
+
+      .law-tag {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .proof-body {
+        padding-left: 24px;
+      }
+
+      .example-body {
+        padding-left: 24px;
+      }
+
+      .mini-grid,
+      .example-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .actions {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .law-card,
+      .assumption,
+      .example {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      details {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">lim</div>
+        <div>
+          <h1>Limit Laws 极限定律</h1>
+          <p>Each law includes a collapsible epsilon-delta proof / 每条都有可收起的 ε-δ 证明。</p>
+        </div>
+      </div>
+      <div class="actions" aria-label="Page controls">
+        <button class="button" id="openAll" type="button">Expand all / 全部展开</button>
+        <button class="button" id="closeAll" type="button">Collapse all / 全部收起</button>
+        <button class="button" type="button" onclick="window.print()">Print / 打印</button>
+      </div>
+    </header>
+
+    <section class="intro" aria-labelledby="assumptions-title">
+      <div class="assumption">
+        <p class="lead" id="assumptions-title">
+          Let \(c\) and \(k\) be real numbers, and suppose
+          \(\displaystyle \lim_{x\to c} f(x)=A\) and
+          \(\displaystyle \lim_{x\to c} g(x)=B\) exist.
+        </p>
+        <p class="sub">
+          Under these assumptions, the following limit laws are valid. 在这些前提下，下面的极限定律成立。
+        </p>
+      </div>
+      <aside class="note">
+        <strong>Teaching note 教学提示</strong>
+        The product law requires both factor limits to exist. However, a product limit may still exist even when one factor has no limit; see the example under part b). 乘法律的使用前提是两个因子的极限都存在；但某个因子极限不存在时，乘积极限仍然可能存在。
+      </aside>
+    </section>
+
+    <section class="law-list" aria-label="Limit laws">
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">a</div>
+          <div class="formula">
+            \[
+              \lim_{x\to c}\big(f(x)\pm g(x)\big)
+              =
+              \lim_{x\to c}f(x)\pm\lim_{x\to c}g(x)
+              =
+              A\pm B
+            \]
+          </div>
+          <div class="law-tag">Sum / difference law</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>For any \(\varepsilon>0\), use the definitions of \(\lim f=A\) and \(\lim g=B\).</p>
+            <ol class="steps">
+              <li>Choose \(\delta_1\) so that \(0&lt;|x-c|&lt;\delta_1\Rightarrow |f(x)-A|&lt;\varepsilon/2\).</li>
+              <li>Choose \(\delta_2\) so that \(0&lt;|x-c|&lt;\delta_2\Rightarrow |g(x)-B|&lt;\varepsilon/2\).</li>
+              <li>Let \(\delta=\min(\delta_1,\delta_2)\). Then
+                \[
+                |(f(x)\pm g(x))-(A\pm B)|
+                \le |f(x)-A|+|g(x)-B|
+                <\varepsilon.
+                \]
+              </li>
+            </ol>
+          </div>
+        </details>
+      </article>
+
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">b</div>
+          <div class="formula">
+            \[
+              \lim_{x\to c}\big(f(x)g(x)\big)
+              =
+              \left(\lim_{x\to c}f(x)\right)
+              \left(\lim_{x\to c}g(x)\right)
+              =
+              AB
+            \]
+          </div>
+          <div class="law-tag">Product law</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>The useful trick is to add and subtract \(Ag(x)\):</p>
+            \[
+              |f(x)g(x)-AB|
+              =
+              |g(x)(f(x)-A)+A(g(x)-B)|.
+            \]
+            <ol class="steps">
+              <li>First choose \(\delta_0\) so that \(|g(x)-B|&lt;1\), hence \(|g(x)|\le |B|+1\).</li>
+              <li>Choose \(\delta_1\) so that \(|f(x)-A|&lt;\dfrac{\varepsilon}{2(|B|+1)}\).</li>
+              <li>Choose \(\delta_2\) so that \(|g(x)-B|&lt;\dfrac{\varepsilon}{2(|A|+1)}\).</li>
+              <li>For \(\delta=\min(\delta_0,\delta_1,\delta_2)\),
+                \[
+                |f(x)g(x)-AB|
+                \le |g(x)||f(x)-A|+|A||g(x)-B|
+                <\varepsilon.
+                \]
+              </li>
+            </ol>
+          </div>
+        </details>
+        <details class="inline-example">
+          <summary>
+            What is \(\displaystyle \lim_{x\to0} x^2\sin\frac1x\)? / 思考题
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="example-body">
+            <p>
+              This example is placed under the product law because it shows an important warning:
+              the product law needs both individual limits to exist, but a product limit can still exist
+              even when one factor limit does not exist.
+            </p>
+            <div class="theorem-box">
+              <h3>Squeeze Theorem / 夹逼定理</h3>
+              <p>
+                If \(m(x)\le h(x)\le M(x)\) for all \(x\) close to \(c\), except possibly at \(c\), and
+                \[
+                  \lim_{x\to c}m(x)=\lim_{x\to c}M(x)=L,
+                \]
+                then \(\displaystyle \lim_{x\to c}h(x)=L\).
+              </p>
+            </div>
+            <div class="mini-grid">
+              <div class="mini">
+                <h3>One factor limit DNE</h3>
+                \[
+                  \lim_{x\to0}\sin\frac1x \text{ DNE.}
+                \]
+                <p>
+                  As \(x\to0\), \(\sin(1/x)\) oscillates between \(-1\) and \(1\) infinitely often.
+                </p>
+              </div>
+              <div class="mini">
+                <h3>The product limit exists</h3>
+                \[
+                  -1\le \sin\frac1x\le 1
+                  \quad\Rightarrow\quad
+                  -x^2\le x^2\sin\frac1x\le x^2.
+                \]
+                <p>
+                  Since \(\lim_{x\to0}(-x^2)=0\) and \(\lim_{x\to0}x^2=0\), the squeeze theorem gives
+                  \[
+                    \lim_{x\to0}x^2\sin\frac1x=0.
+                  \]
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">c</div>
+          <div class="formula">
+            \[
+              \lim_{x\to c} kf(x)
+              =
+              k\lim_{x\to c}f(x)
+              =
+              kA
+            \]
+          </div>
+          <div class="law-tag">Constant multiple law</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>If \(k=0\), then \(kf(x)=0\), so the limit is immediate. If \(k\ne0\):</p>
+            <ol class="steps">
+              <li>Given \(\varepsilon>0\), choose \(\delta\) so that \(0&lt;|x-c|&lt;\delta\Rightarrow |f(x)-A|&lt;\varepsilon/|k|\).</li>
+              <li>Then
+                \[
+                |kf(x)-kA|=|k|\,|f(x)-A|<\varepsilon.
+                \]
+              </li>
+            </ol>
+          </div>
+        </details>
+      </article>
+
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">d</div>
+          <div class="formula">
+            \[
+              \lim_{x\to c}\frac{f(x)}{g(x)}
+              =
+              \frac{\lim_{x\to c}f(x)}{\lim_{x\to c}g(x)}
+              =
+              \frac{A}{B},
+              \quad B\ne0
+            \]
+          </div>
+          <div class="law-tag">Quotient law</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>First prove the reciprocal law for \(g\). Since \(B\ne0\), keep \(g(x)\) away from \(0\).</p>
+            <ol class="steps">
+              <li>Choose \(\delta_0\) so that \(|g(x)-B|&lt;|B|/2\). Then \(|g(x)|>|B|/2\).</li>
+              <li>For such \(x\),
+                \[
+                \left|\frac1{g(x)}-\frac1B\right|
+                =
+                \frac{|g(x)-B|}{|g(x)||B|}
+                \le \frac{2|g(x)-B|}{|B|^2}.
+                \]
+              </li>
+              <li>Thus \(\lim_{x\to c}1/g(x)=1/B\). Apply the product law to \(f(x)\cdot 1/g(x)\).</li>
+            </ol>
+          </div>
+        </details>
+      </article>
+
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">e</div>
+          <div class="formula">
+            \[
+              \lim_{x\to c}\big(f(x)\big)^n
+              =
+              \left(\lim_{x\to c}f(x)\right)^n
+              =
+              A^n
+            \]
+          </div>
+          <div class="law-tag">Power law, \(n\in\mathbb N\)</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>Use induction from the product law.</p>
+            <ol class="steps">
+              <li>For \(n=1\), the result is exactly \(\lim f=A\).</li>
+              <li>If \(\lim (f(x))^n=A^n\), then
+                \[
+                \lim (f(x))^{n+1}
+                =
+                \lim\big((f(x))^n f(x)\big)
+                =
+                A^n\cdot A
+                =
+                A^{n+1}.
+                \]
+              </li>
+              <li>Therefore the law holds for every positive integer \(n\).</li>
+            </ol>
+          </div>
+        </details>
+      </article>
+
+      <article class="law-card">
+        <div class="law-head">
+          <div class="letter">f</div>
+          <div class="formula">
+            \[
+              \text{If }\lim_{x\to c}g(x)=L
+              \text{ and }\lim_{u\to L}f(u)=f(L),
+              \text{ then }
+              \lim_{x\to c}f(g(x))=f(L).
+            \]
+          </div>
+          <div class="law-tag">Composition law</div>
+        </div>
+        <details>
+          <summary>
+            Epsilon-delta proof / ε-δ 证明
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="proof-body">
+            <p>Use the epsilon-delta definition twice, passing the output of \(g\) into \(f\).</p>
+            <ol class="steps">
+              <li>Given \(\varepsilon>0\), since \(\lim_{u\to L} f(u)=f(L)\), choose \(\eta>0\) so that \(|u-L|&lt;\eta\Rightarrow |f(u)-f(L)|&lt;\varepsilon\).</li>
+              <li>Since \(\lim_{x\to c}g(x)=L\), choose \(\delta>0\) so that \(0&lt;|x-c|&lt;\delta\Rightarrow |g(x)-L|&lt;\eta\).</li>
+              <li>Let \(u=g(x)\). Then
+                \[
+                |f(g(x))-f(L)|<\varepsilon,
+                \]
+                so \(\lim_{x\to c}f(g(x))=f(L)\).
+              </li>
+            </ol>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      Tip: open the proofs one at a time during class, or use "Expand all" before printing. 上课时可以逐条展开证明，也可以全部展开后打印。
+    </p>
+  </main>
+
+  <script>
+    const proofBlocks = Array.from(document.querySelectorAll('details'));
+    document.getElementById('openAll').addEventListener('click', () => {
+      proofBlocks.forEach((block) => {
+        block.open = true;
+      });
+    });
+    document.getElementById('closeAll').addEventListener('click', () => {
+      proofBlocks.forEach((block) => {
+        block.open = false;
+      });
+    });
+  </script>
+</body>
+</html>
