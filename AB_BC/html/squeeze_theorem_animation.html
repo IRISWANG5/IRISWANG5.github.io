@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squeeze Theorem: x² sin(1/x)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f1f5f9; /* slate-100 */
+        }
+        
+        .math-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom range slider styling for a premium look */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #4f46e5; /* indigo-600 */
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 3px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        
+        #canvas-container {
+            touch-action: none;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col items-center py-6 px-4">
+
+    <header class="w-full max-w-6xl mb-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-indigo-900 tracking-tight flex items-center gap-3">
+            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+            Squeeze Theorem Demonstration
+        </h1>
+        <p class="text-slate-600 mt-2 text-base md:text-lg max-w-3xl">
+            Watch the progressive plot of <span class="math-font text-indigo-700 bg-indigo-50 px-1 rounded">f(x) = x²·sin(1/x)</span>. 
+            The dashed envelope curves <span class="math-font text-slate-500">y = ±x²</span> visually demonstrate how the function is bounded ("squeezed") to 0 as <span class="math-font">x → 0</span>.
+        </p>
+    </header>
+
+    <main class="w-full max-w-6xl flex flex-col lg:flex-row gap-6 flex-grow">
+        
+        <!-- Canvas Area (Left) -->
+        <div class="flex-grow bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 overflow-hidden flex flex-col relative h-[60vh] lg:h-auto min-h-[400px]">
+            <div class="px-5 py-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center z-10">
+                <h2 class="font-semibold text-slate-700 text-sm uppercase tracking-wider">Interactive Graph</h2>
+                <div class="flex items-center gap-4 text-xs font-medium text-slate-500">
+                    <div class="flex items-center gap-1.5">
+                        <span class="inline-block w-4 h-0.5 border-t-2 border-dashed border-slate-400"></span> Envelope
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="inline-block w-3 h-3 rounded-full bg-indigo-600"></span> f(x)
+                    </div>
+                </div>
+            </div>
+            <div id="canvas-container" class="relative w-full flex-grow overflow-hidden">
+                <canvas id="mathCanvas" class="absolute top-0 left-0 w-full h-full cursor-crosshair"></canvas>
+            </div>
+        </div>
+
+        <!-- Controls Area (Right) -->
+        <div class="w-full lg:w-80 flex flex-col gap-6">
+            
+            <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 p-6">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Playback Controls</h3>
+                
+                <div class="flex gap-3 mb-6">
+                    <button id="btn-play" class="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-md shadow-indigo-200 transition-all active:scale-95 flex justify-center items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                        <span id="play-text">Pause</span>
+                    </button>
+                    <button id="btn-reset" class="py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-medium transition-all active:scale-95 flex justify-center items-center" title="Restart Animation">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                </div>
+
+                <div class="mb-2 flex justify-between items-end">
+                    <label class="text-sm font-semibold text-slate-700">Drawing Progress</label>
+                    <span id="progress-val" class="text-xs font-mono text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded">0%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2.5 mb-6 overflow-hidden">
+                    <div id="progress-bar" class="bg-indigo-500 h-2.5 rounded-full transition-all ease-linear" style="width: 0%"></div>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Camera Zoom</h3>
+                
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm text-slate-600 mb-2 font-medium">
+                        <span>Domain: [-1, 1]</span>
+                        <span>Near x=0</span>
+                    </div>
+                    <input type="range" id="zoom-slider" min="0" max="100" value="0">
+                </div>
+                
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="text-slate-500">Current Domain:</div>
+                        <div class="text-right font-mono text-slate-800" id="info-domain">[-1.000, 1.000]</div>
+                        <div class="text-slate-500">Current Range:</div>
+                        <div class="text-right font-mono text-slate-800" id="info-range">[-1.000, 1.000]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-indigo-50 rounded-2xl border border-indigo-100 p-5 text-sm text-indigo-900 leading-relaxed shadow-sm">
+                <p><strong>Note:</strong> As you zoom closely into <span class="math-font">x = 0</span>, notice how the frequency of oscillation approaches infinity due to the <span class="math-font">1/x</span> term, yet the amplitude is strictly bounded by <span class="math-font">x²</span>.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const canvasContainer = document.getElementById('canvas-container');
+        const canvas = document.getElementById('mathCanvas');
+        const ctx = canvas.getContext('2d', { alpha: false });
+
+        // UI Elements
+        const btnPlay = document.getElementById('btn-play');
+        const playText = document.getElementById('play-text');
+        const btnReset = document.getElementById('btn-reset');
+        const zoomSlider = document.getElementById('zoom-slider');
+        const infoDomain = document.getElementById('info-domain');
+        const infoRange = document.getElementById('info-range');
+        const progressBar = document.getElementById('progress-bar');
+        const progressVal = document.getElementById('progress-val');
+
+        // Mathematical boundaries mapping
+        let canvasWidth = 0;
+        let canvasHeight = 0;
+        let dpr = 1;
+
+        // Domain & Range parameters
+        let mathXMax = 1.0; // Domain is [-mathXMax, mathXMax]
+        let mathYMax = 1.2; // Range is [-mathYMax, mathYMax]
+
+        // Animation state
+        let isPlaying = true;
+        let drawProgress = 0.0; // 0.0 to 1.0 (Left to Right)
+        const animationSpeed = 0.003; // Progress increment per frame
+
+        /**
+         * Main function: f(x) = x^2 * sin(1/x)
+         */
+        function f(x) {
+            if (Math.abs(x) < 1e-12) return 0; // Handle singularity at x=0
+            return (x * x) * Math.sin(1 / x);
+        }
+
+        /** Envelope 1: y = x^2 */
+        function envUpper(x) { return x * x; }
+        
+        /** Envelope 2: y = -x^2 */
+        function envLower(x) { return -x * x; }
+
+        function mapX(x) {
+            // Maps [-mathXMax, mathXMax] to [0, canvasWidth]
+            return ((x + mathXMax) / (2 * mathXMax)) * canvasWidth;
+        }
+
+        function mapY(y) {
+            // Maps [-mathYMax, mathYMax] to [canvasHeight, 0] (Y-axis inverted for canvas)
+            return canvasHeight - ((y + mathYMax) / (2 * mathYMax)) * canvasHeight;
+        }
+
+        function unmapX(px) {
+            // Maps canvas pixel X back to math domain X
+            return (px / canvasWidth) * (2 * mathXMax) - mathXMax;
+        }
+
+        function resizeCanvas() {
+            const rect = canvasContainer.getBoundingClientRect();
+            dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            
+            canvasWidth = rect.width;
+            canvasHeight = rect.height;
+            
+            // Normalize coordinate system to handle scaling automatically
+            ctx.scale(dpr, dpr);
+            
+            // Re-draw immediately to avoid flickering
+            drawFrame();
+        }
+
+        function drawBackgroundAndAxes() {
+            // Clear background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+            const originX = mapX(0);
+            const originY = mapY(0);
+
+            // Draw light grid based on current zoom
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#f1f5f9'; // Very light gray grid
+            
+            // Determine grid step dynamically based on zoom
+            // We want roughly 10 grid lines across the screen
+            const rawStep = (2 * mathXMax) / 10;
+            const magnitude = Math.pow(10, Math.floor(Math.log10(rawStep)));
+            let step = magnitude;
+            if (rawStep / magnitude >= 5) step = magnitude * 5;
+            else if (rawStep / magnitude >= 2) step = magnitude * 2;
+
+            ctx.beginPath();
+            // Vertical grid lines
+            for (let x = 0; x <= mathXMax; x += step) {
+                const pxRight = mapX(x);
+                const pxLeft = mapX(-x);
+                ctx.moveTo(pxRight, 0); ctx.lineTo(pxRight, canvasHeight);
+                ctx.moveTo(pxLeft, 0); ctx.lineTo(pxLeft, canvasHeight);
+            }
+            // Horizontal grid lines (using same scale or relative scale)
+            const yStep = mathYMax / 5;
+            for (let y = 0; y <= mathYMax; y += yStep) {
+                const pyUp = mapY(y);
+                const pyDown = mapY(-y);
+                ctx.moveTo(0, pyUp); ctx.lineTo(canvasWidth, pyUp);
+                ctx.moveTo(0, pyDown); ctx.lineTo(canvasWidth, pyDown);
+            }
+            ctx.stroke();
+
+            // Draw Main Axes
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = '#94a3b8'; // slate-400
+            ctx.beginPath();
+            // X-Axis
+            ctx.moveTo(0, originY);
+            ctx.lineTo(canvasWidth, originY);
+            // Y-Axis
+            ctx.moveTo(originX, 0);
+            ctx.lineTo(originX, canvasHeight);
+            ctx.stroke();
+        }
+
+        function drawEnvelopes() {
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#cbd5e1'; // slate-300
+            ctx.setLineDash([6, 6]);
+
+            // Draw Upper Envelope (y = x^2)
+            for (let px = 0; px <= canvasWidth; px += 2) {
+                const x = unmapX(px);
+                const y = envUpper(x);
+                if (px === 0) ctx.moveTo(px, mapY(y));
+                else ctx.lineTo(px, mapY(y));
+            }
+            
+            // Draw Lower Envelope (y = -x^2)
+            for (let px = 0; px <= canvasWidth; px += 2) {
+                const x = unmapX(px);
+                const y = envLower(x);
+                if (px === 0) ctx.moveTo(px, mapY(y));
+                else ctx.lineTo(px, mapY(y));
+            }
+            ctx.stroke();
+            ctx.setLineDash([]); // Reset line dash
+        }
+
+        function drawMainFunction() {
+            // Calculate how many pixels to draw based on progress
+            const limitPx = canvasWidth * drawProgress;
+
+            ctx.beginPath();
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = '#4f46e5'; // indigo-600
+            ctx.lineJoin = 'round';
+
+            // Adaptive sampling: To render sin(1/x) properly near 0, 
+            // evaluating exactly at pixel columns is generally best to prevent aliasing missing the envelope.
+            // We evaluate every single pixel.
+            let started = false;
+            
+            for (let px = 0; px <= limitPx; px++) {
+                const x = unmapX(px);
+                const y = f(x);
+                const mappedY = mapY(y);
+
+                if (!started) {
+                    ctx.moveTo(px, mappedY);
+                    started = true;
+                } else {
+                    ctx.lineTo(px, mappedY);
+                }
+            }
+            ctx.stroke();
+
+            // Draw a glowing leading point
+            if (drawProgress > 0 && drawProgress < 1) {
+                const leadX = unmapX(limitPx);
+                const leadY = f(leadX);
+                
+                ctx.beginPath();
+                ctx.arc(limitPx, mapY(leadY), 5, 0, Math.PI * 2);
+                ctx.fillStyle = '#4f46e5';
+                ctx.fill();
+                
+                // Outer glow
+                ctx.beginPath();
+                ctx.arc(limitPx, mapY(leadY), 10, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(79, 70, 229, 0.3)';
+                ctx.fill();
+            }
+        }
+
+        function drawFrame() {
+            drawBackgroundAndAxes();
+            drawEnvelopes();
+            drawMainFunction();
+
+            // Update UI Progress Bar
+            const percent = (drawProgress * 100).toFixed(1);
+            progressBar.style.width = `${percent}%`;
+            progressVal.textContent = `${percent}%`;
+        }
+
+        function animateLoop() {
+            if (isPlaying && drawProgress < 1.0) {
+                drawProgress += animationSpeed;
+                if (drawProgress > 1.0) {
+                    drawProgress = 1.0;
+                    isPlaying = false; // Auto-pause at end
+                    updatePlayButtonUI();
+                }
+                drawFrame();
+            }
+            requestAnimationFrame(animateLoop);
+        }
+
+        function updatePlayButtonUI() {
+            if (isPlaying) {
+                playText.textContent = "Pause";
+                btnPlay.innerHTML = `
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                    <span>Pause</span>
+                `;
+                btnPlay.className = "flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-md shadow-indigo-200 transition-all active:scale-95 flex justify-center items-center gap-2";
+            } else {
+                const text = drawProgress >= 1.0 ? "Replay" : "Resume";
+                const icon = drawProgress >= 1.0 
+                    ? `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>`
+                    : `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM10 8a1 1 0 011 1v2a1 1 0 11-2 0V9a1 1 0 011-1z" clip-rule="evenodd"></path></svg>`;
+                btnPlay.innerHTML = `${icon}<span>${text}</span>`;
+                btnPlay.className = "flex-1 py-3 px-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold shadow-md shadow-emerald-200 transition-all active:scale-95 flex justify-center items-center gap-2";
+            }
+        }
+
+        btnPlay.addEventListener('click', () => {
+            if (drawProgress >= 1.0) {
+                drawProgress = 0.0;
+            }
+            isPlaying = !isPlaying;
+            updatePlayButtonUI();
+        });
+
+        btnReset.addEventListener('click', () => {
+            drawProgress = 0.0;
+            isPlaying = true;
+            updatePlayButtonUI();
+            drawFrame(); // Force immediate redraw
+        });
+
+        // Exponential mapping for smooth zooming near zero
+        zoomSlider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value); // 0 to 100
+            // Map 0 -> 10^0 (1)
+            // Map 100 -> 10^-2.5 (~0.003)
+            const exponent = (val / 100) * -2.5; 
+            mathXMax = Math.pow(10, exponent);
+            
+            // Y needs to scale roughly quadratically with X because envelope is x^2
+            // Add a small margin (e.g. * 1.2) to keep the envelope inside the view
+            mathYMax = (mathXMax * mathXMax) * 1.2;
+
+            // Format numbers for display
+            const formatNum = (num) => {
+                if (num < 0.001) return num.toExponential(2);
+                return num.toFixed(4);
+            };
+
+            infoDomain.textContent = `[-${formatNum(mathXMax)}, ${formatNum(mathXMax)}]`;
+            infoRange.textContent = `[-${formatNum(mathYMax)}, ${formatNum(mathYMax)}]`;
+
+            // Draw instantly while dragging slider
+            drawFrame();
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+
+        window.onload = function() {
+            resizeCanvas();
+            updatePlayButtonUI();
+            
+            // Initialize slider text
+            infoDomain.textContent = `[-1.0000, 1.0000]`;
+            infoRange.textContent = `[-1.2000, 1.2000]`;
+            
+            animateLoop(); // Start the loop
+        };
+
+    </script>
+</body>
+</html>
