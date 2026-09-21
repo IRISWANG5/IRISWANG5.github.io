@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadratic · A Level 核心知识点</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<script>try{if(localStorage.getItem('q_rail_min')==='1')document.documentElement.className+=' rail-min';}catch(e){}</script>
+<style>
+  :root{
+    --bg:#f5f8fb;
+    --card:#ffffff;
+    --ink:#1b2632;
+    --ink-2:#3d4d5e;
+    --muted:#68798c;
+    --line:#e4ebf3;
+    --line-2:#eef3f8;
+    --teal:#12a08a;
+    --teal-d:#0d8574;
+    --orange:#e8823a;
+    --blue:#2f7fbf;
+    --purple:#8e5ab8;
+    --green:#25a35a;
+    --coral:#e2664f;
+    --shadow:0 1px 2px rgba(27,38,50,.05), 0 8px 24px -12px rgba(27,38,50,.16);
+    --radius:16px;
+    --railw:254px;
+  }
+  html.rail-min{--railw:66px}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal-d);text-decoration:none}
+
+  /* ---------- layout ---------- */
+  .page{padding-left:var(--railw);transition:padding-left .3s cubic-bezier(.4,0,.2,1)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 30px 90px}
+  @media (max-width:620px){.wrap{padding:0 16px 70px}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:56px 0 8px;max-width:1180px;margin:0 auto;padding-left:30px;padding-right:30px}
+  @media (max-width:620px){.hero{padding-left:16px;padding-right:16px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--teal-d);background:#e6f6f2;border:1px solid #cdeae3;padding:5px 13px;border-radius:999px}
+  .hero h1{font-size:clamp(30px,4.4vw,46px);line-height:1.2;margin:18px 0 6px;letter-spacing:-.02em}
+  .hero h1 em{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--teal-d)}
+  .hero p.lead{margin:0;color:var(--muted);max-width:64ch;font-size:16px}
+  .hero-rule{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:30px 0 0}
+
+  /* ---------- floating left rail (index) ---------- */
+  nav.rail{
+    position:fixed;left:0;top:0;bottom:0;z-index:70;
+    width:var(--railw);
+    display:flex;flex-direction:column;
+    background:rgba(255,255,255,.88);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-right:1px solid var(--line);
+    box-shadow:14px 0 44px -34px rgba(27,38,50,.85);
+    transition:width .3s cubic-bezier(.4,0,.2,1),transform .3s cubic-bezier(.4,0,.2,1);
+  }
+  .rail-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:20px 12px 12px 20px;flex:none}
+  .rail-head .navtitle{margin:0;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#9aaabb;font-weight:800;white-space:nowrap}
+  .rail-head .navtitle b{display:block;font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-2);margin-top:3px;font-weight:700}
+  .rail-min,.rail-close{
+    width:27px;height:27px;flex:none;border-radius:9px;border:1px solid var(--line);background:#fff;
+    color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:14px;line-height:1;
+    font-family:inherit;transition:.16s
+  }
+  .rail-min:hover,.rail-close:hover{border-color:#bfe6dc;background:#eefaf7;color:var(--teal-d)}
+  .rail-close{display:none}
+  .rail-list{
+    list-style:none;margin:0;padding:0 10px 26px;flex:1;overflow-y:auto;overflow-x:hidden;
+    scrollbar-width:thin;-webkit-overflow-scrolling:touch
+  }
+  .rail-list::-webkit-scrollbar{width:6px}
+  .rail-list::-webkit-scrollbar-thumb{background:#dbe4ee;border-radius:99px}
+  .rail-list li{margin:1px 0}
+  .rail-list a{
+    position:relative;display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:10px;
+    color:var(--ink-2);font-size:13.5px;font-weight:500;white-space:nowrap;transition:.16s
+  }
+  .rail-list a .n{
+    flex:none;width:27px;height:21px;border-radius:7px;display:grid;place-items:center;
+    font-family:Georgia,"Times New Roman",serif;font-size:11.5px;font-weight:700;
+    background:#f1f5f9;color:#8296a8;transition:.16s
+  }
+  .rail-list a .lb{overflow:hidden;text-overflow:ellipsis}
+  .rail-list a:hover{background:#eaf2f8;color:var(--ink)}
+  .rail-list a:hover .n{background:#dde8f2;color:#4a5b6d}
+  .rail-list a.active{background:#e6f6f2;color:var(--teal-d);font-weight:700}
+  .rail-list a.active .n{background:var(--teal);color:#fff}
+  .rail-list a.active::before{
+    content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);
+    width:3px;height:20px;border-radius:0 3px 3px 0;background:var(--teal)
+  }
+  .rail-list li.sub a{padding-left:24px;font-size:12.5px;font-weight:500;color:var(--muted)}
+  .rail-list li.sub a .n{width:auto;min-width:14px;height:auto;background:none;color:#b3c1cf;font-size:12px}
+  .rail-list li.sub a:hover{color:var(--ink-2);background:#f2f7fb}
+  .rail-list li.sub a:hover .n{background:none;color:#8ea2b6}
+  .rail-list li.sub a.active{background:#eefaf7;color:var(--teal-d);font-weight:700}
+  .rail-list li.sub a.active .n{background:none;color:var(--teal-d)}
+  .rail-list li.sub a.active::before{display:none}
+  .rail-sep{height:1px;background:var(--line-2);margin:9px 6px}
+  .rail-foot{
+    flex:none;padding:10px 14px 16px;font-size:11.5px;color:#a9b8c8;
+    display:flex;align-items:center;gap:7px;white-space:nowrap
+  }
+  .rail-prog{flex:1;height:3px;border-radius:99px;background:#e8eef5;overflow:hidden;min-width:20px}
+  .rail-prog i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--teal),#5fc9b4);transition:width .18s linear}
+
+  /* collapsed */
+  html.rail-min nav.rail{width:var(--railw)}
+  html.rail-min .rail-list{padding:0 8px 22px}
+  html.rail-min .rail-list a{justify-content:center;padding:8px 0}
+  html.rail-min .rail-list a .lb{display:none}
+  html.rail-min .rail-head{padding:18px 0 10px;justify-content:center}
+  html.rail-min .rail-head .navtitle{display:none}
+  html.rail-min .rail-min{transform:rotate(180deg)}
+  html.rail-min .rail-sep{margin:8px 14px}
+  html.rail-min .rail-foot{justify-content:center;padding:8px 0 14px;font-size:10.5px}
+  html.rail-min .rail-prog{display:none}
+  html.rail-min .rail-list li.sub{display:none}
+  html.rail-min .rail-list a .n{min-width:0}
+
+  /* narrow screens: rail becomes a drawer + FAB */
+  .rail-fab{
+    display:none;position:fixed;left:16px;bottom:20px;z-index:66;
+    align-items:center;gap:8px;font-family:inherit;font-size:13.5px;font-weight:700;
+    padding:10px 16px;border-radius:999px;border:1px solid #bfe6dc;background:#fff;color:var(--teal-d);
+    box-shadow:0 12px 32px -12px rgba(13,133,116,.75);cursor:pointer;transition:.18s
+  }
+  .rail-fab:hover{background:#eefaf7}
+  .rail-fab svg{width:15px;height:15px;flex:none}
+  .rail-scrim{position:fixed;inset:0;z-index:68;background:rgba(27,38,50,.36);opacity:0;pointer-events:none;transition:opacity .26s}
+  @media (max-width:1080px){
+    .page{padding-left:0}
+    .rail-fab{display:inline-flex}
+    .rail-close{display:grid}
+    .rail-min{display:none}
+    .rail-head .navtitle{display:block!important}
+    html.rail-min .rail-head{padding:20px 12px 12px 20px;justify-content:space-between}
+    html.rail-min .rail-head .navtitle{display:block}
+    nav.rail{width:274px;transform:translateX(-100%);box-shadow:24px 0 60px -26px rgba(27,38,50,.7)}
+    html.rail-min nav.rail{width:274px}
+    html.rail-min .rail-list a{justify-content:flex-start;padding:8px 10px}
+    html.rail-min .rail-list a .lb{display:block}
+    html.rail-min .rail-list li.sub{display:block}
+    html.rail-min .rail-list li.sub a{padding-left:24px}
+    html.rail-min .rail-sep{margin:9px 6px}
+    html.rail-min .rail-foot{justify-content:flex-start;padding:10px 14px 16px;font-size:11.5px}
+    html.rail-min .rail-prog{display:block}
+    body.rail-open nav.rail{transform:none}
+    body.rail-open .rail-scrim{opacity:1;pointer-events:auto}
+  }
+
+  /* ---------- deep-dive collapsibles ---------- */
+  details.deep{
+    background:#fbfdff;border:1px dashed #cfdfe9;border-radius:14px;margin:16px 0 4px;overflow:hidden;
+    scroll-margin-top:18px;
+    transition:border-color .2s,box-shadow .2s,background .2s
+  }
+  details.deep.flash{animation:dflash 1.5s ease-out 1}
+  @keyframes dflash{
+    0%{box-shadow:0 0 0 0 rgba(18,160,138,.34),0 0 0 0 rgba(18,160,138,.2)}
+    45%{box-shadow:0 0 0 6px rgba(18,160,138,.16),0 0 0 14px rgba(18,160,138,0)}
+    100%{box-shadow:0 0 0 0 rgba(18,160,138,0),0 0 0 0 rgba(18,160,138,0)}
+  }
+  details.deep[open]{background:#fff;border-style:solid;border-color:#c9e2ee;box-shadow:0 14px 34px -26px rgba(27,38,50,.65)}
+  details.deep > summary{
+    list-style:none;cursor:pointer;padding:13px 18px;display:flex;align-items:center;gap:11px;
+    font-weight:700;font-size:14.5px;color:#22414f
+  }
+  details.deep > summary::-webkit-details-marker{display:none}
+  details.deep > summary::marker{content:""}
+  details.deep > summary .dv{
+    flex:none;display:inline-flex;align-items:center;
+    font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    background:#eaf6fb;color:#2b7f9e;border:1px solid #cde6f0;padding:3px 8px;border-radius:999px
+  }
+  details.deep > summary .st{
+    margin-left:auto;flex:none;font-size:12px;font-weight:700;color:var(--muted);
+    background:#f1f5f9;border-radius:8px;padding:3px 10px;transition:.16s
+  }
+  details.deep > summary .st::after{content:"展开推导"}
+  details.deep[open] > summary .st::after{content:"收起"}
+  details.deep > summary:hover{background:#f4fafd}
+  details.deep > summary:hover .st{background:#e4eefb;color:#3b5a76}
+  details.deep[open] > summary{border-bottom:1px solid var(--line-2)}
+  details.deep[open] > summary .st{background:#e9f7f3;color:var(--teal-d)}
+  details.deep .dbody{padding:6px 20px 18px;color:var(--ink-2);font-size:14.6px}
+  details.deep .dbody h4{font-size:14px;margin:18px 0 4px;color:#22414f}
+  details.deep .dbody h4:first-child{margin-top:12px}
+  details.deep .dbody p{margin:8px 0}
+  details.deep .dbody table.tbl{font-size:14px}
+  .dnote{background:#fffdf6;border:1px solid #f2e6c6;border-left:3px solid #e0ac42;border-radius:10px;padding:10px 14px;margin:13px 0;font-size:14px}
+  .dnote b{color:#9a6d12}
+  .didea{background:#f3fbf8;border:1px solid #d3ece4;border-left:3px solid var(--teal);border-radius:10px;padding:10px 14px;margin:13px 0;font-size:14px}
+  .didea b{color:var(--teal-d)}
+  .dchain{display:flex;flex-direction:column;gap:7px;margin:14px 0;font-size:14.2px}
+  .dchain > span{
+    display:block;background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:8px 14px;box-shadow:0 1px 2px rgba(27,38,50,.04)
+  }
+  .dchain > i{display:block;text-align:center;color:#b9c7d4;font-style:normal;font-weight:700;font-size:13px;line-height:1}
+
+  /* ---------- sections ---------- */
+  main{min-width:0}
+  section{padding-top:34px;scroll-margin-top:20px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px}
+  .sec-num{font-family:Georgia,serif;font-size:14px;font-weight:700;color:#fff;background:var(--teal);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex:none;transform:translateY(-1px)}
+  h2{font-size:23px;margin:0;letter-spacing:-.01em}
+  h3{font-size:16.5px;margin:26px 0 10px;letter-spacing:-.005em}
+  p{margin:10px 0}
+  .muted{color:var(--muted)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .card + .card{margin-top:14px}
+  .block{background:#eef2fb;border:1px solid #dfe6f6;border-radius:12px;padding:14px 18px;margin:18px 0 10px}
+  .block .bt{font-weight:700;font-size:13.5px;letter-spacing:.01em}
+  .block.or{background:#fdf4ec;border-color:#f7e2cd}
+  .block.bl{background:#eef6fc;border-color:#dbeaf7}
+  .block.pu{background:#f7f1fb;border-color:#eadff5}
+  .block.gr{background:#ecf8f1;border-color:#d7eedf}
+
+  ol.steps{margin:8px 0 0;padding-left:22px}
+  ol.steps li{margin:6px 0}
+  ul.tight{margin:8px 0 0;padding-left:20px}
+  ul.tight li{margin:5px 0}
+
+  .katex{font-size:1.02em}
+  .katex-display{margin:12px 0!important}
+
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;letter-spacing:.02em}
+  .tag.or{background:#fdf0e4;color:#b8641f}
+  .tag.bl{background:#e9f3fb;color:#1f6ba8}
+  .tag.pu{background:#f4ecfb;color:#7846a5}
+  .tag.gr{background:#e9f7ef;color:#1a7f45}
+
+  /* ---------- mindmap ---------- */
+  .mapwrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 10px;overflow:hidden}
+  .mapwrap svg{display:block;width:100%;height:auto;min-width:560px}
+  .mapscroll{overflow-x:auto;padding-bottom:4px}
+  .mapcap{font-size:12.5px;color:#9aaabb;padding:2px 6px 8px}
+
+  /* ---------- objective cards ---------- */
+  .goals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+  @media (max-width:820px){.goals{grid-template-columns:1fr}}
+  .goal{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 18px;box-shadow:var(--shadow);border-top:3px solid var(--teal)}
+  .goal:nth-child(2){border-top-color:var(--blue)}
+  .goal:nth-child(3){border-top-color:var(--purple)}
+  .goal b{display:block;font-size:14.5px;margin-bottom:5px}
+  .goal span{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- explorer ---------- */
+  .explorer{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px}
+  @media (max-width:960px){.explorer{grid-template-columns:1fr}}
+  .canvasbox{background:#fff;border:1px solid var(--line);border-radius:13px;padding:8px;position:relative;min-height:300px}
+  #graph{display:block;border-radius:8px}
+  .ctrls{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+  .ctrl{margin:14px 0}
+  .ctrl .row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:600;margin-bottom:6px}
+  .ctrl .val{font-family:ui-monospace,Consolas,monospace;background:#f1f5f9;border:1px solid var(--line);border-radius:7px;padding:1px 8px;font-size:12.5px;color:var(--ink-2)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:99px;background:linear-gradient(90deg,#dfe7ef,#cfdce8);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid var(--teal);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .presets{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .presets button{font-family:inherit;font-size:12.5px;padding:5px 11px;border-radius:8px;border:1px solid var(--line);background:#f8fafc;color:var(--ink-2);cursor:pointer;transition:.15s}
+  .presets button:hover{border-color:#bfe6dc;background:#eefaf7;color:var(--teal-d)}
+  .toggle{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+  .toggle button{font-family:inherit;font-size:12.5px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;font-weight:600;transition:.15s}
+  .toggle button.on{background:#e6f6f2;border-color:#a9ded1;color:var(--teal-d)}
+  .toggle button.on.coral{background:#fdeeea;border-color:#f6c9be;color:#b5452f}
+
+  .readout{background:#fff;border:1px solid var(--line);border-radius:13px;padding:6px 20px 16px;margin-top:18px}
+  .rrow{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--line-2)}
+  .rrow:last-child{border-bottom:none}
+  .rlab{font-size:13px;color:var(--muted);font-weight:600}
+  .rval{overflow-x:auto;overflow-y:hidden;padding-bottom:2px}
+  @media (max-width:620px){.rrow{grid-template-columns:1fr;gap:2px}}
+
+  table.tbl{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px}
+  table.tbl th,table.tbl td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:middle}
+  table.tbl th{background:#f6f9fc;font-size:13px;letter-spacing:.02em;color:var(--ink-2);font-weight:700}
+  table.tbl tbody tr:hover{background:#fafcfe}
+
+  .ex{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 20px;box-shadow:var(--shadow)}
+  .ex + .ex{margin-top:12px}
+  .ex .q{font-weight:700;font-size:14.5px;display:flex;gap:9px;align-items:baseline}
+  .ex .sol{margin-top:8px;color:var(--ink-2);font-size:14.5px}
+  .ex .sol .line{margin:5px 0}
+
+  .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:820px){.tips{grid-template-columns:1fr}}
+  .tip{background:#fff;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:13px;padding:15px 18px;box-shadow:var(--shadow)}
+  .tip b{display:block;font-size:14.5px;color:#1a7f45;margin-bottom:5px}
+  .tip span{font-size:13.5px;color:var(--muted)}
+
+  details.quiz{background:#fff;border:1px solid var(--line);border-radius:13px;padding:0;overflow:hidden;margin-bottom:10px;box-shadow:var(--shadow)}
+  details.quiz summary{cursor:pointer;padding:14px 20px;font-weight:600;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  details.quiz summary::-webkit-details-marker{display:none}
+  details.quiz summary::after{content:"查看答案";font-size:12.5px;font-weight:700;color:var(--teal-d);background:#e6f6f2;border-radius:7px;padding:3px 10px;flex:none}
+  details.quiz[open] summary::after{content:"收起";background:#f1f5f9;color:var(--muted)}
+  details.quiz[open] summary{border-bottom:1px solid var(--line-2)}
+  details.quiz .body{padding:12px 20px 16px;color:var(--ink-2);font-size:14.5px}
+
+  footer{grid-column:1/-1;margin-top:50px;padding-top:22px;border-top:1px solid var(--line);color:#9aaabb;font-size:12.5px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<button class="rail-fab" id="railFab" aria-controls="rail" aria-expanded="false">
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+    <path d="M3 5h14M3 10h14M3 15h9"/>
+  </svg>目录
+</button>
+<div class="rail-scrim" id="railScrim"></div>
+
+<nav class="rail" id="rail" aria-label="页面目录">
+  <div class="rail-head">
+    <p class="navtitle">Contents<b>目录</b></p>
+    <button class="rail-min" id="railMin" title="收起目录" aria-label="收起目录">‹</button>
+    <button class="rail-close" id="railClose" title="关闭目录" aria-label="关闭目录">✕</button>
+  </div>
+  <ul class="rail-list" id="railList">
+    <li><a href="#map" title="知识地图"><span class="n">◎</span><span class="lb">知识地图</span></a></li>
+    <li class="rail-sep" role="presentation"></li>
+    <li><a href="#obj" title="Core Learning Objectives 学习目标"><span class="n">1</span><span class="lb">学习目标</span></a></li>
+    <li><a href="#cts" title="Completing the Square 配方"><span class="n">2.1</span><span class="lb">配方</span></a></li>
+    <li class="sub"><a href="#deep-roots" title="根 · 因式 · 交点：三句等价的话"><span class="n">└</span><span class="lb">根 · 因式 · 交点</span></a></li>
+    <li class="sub"><a href="#deep-h" title="顶点横坐标为什么是 −b/2a"><span class="n">└</span><span class="lb">顶点为什么是 −b/2a</span></a></li>
+    <li><a href="#disc" title="The Discriminant 判别式"><span class="n">2.2</span><span class="lb">判别式</span></a></li>
+    <li class="sub"><a href="#deep-disc" title="判别式是怎么来的"><span class="n">└</span><span class="lb">判别式是怎么来的</span></a></li>
+    <li class="sub"><a href="#deep-vieta" title="韦达定理：两根之和 / 之积"><span class="n">└</span><span class="lb">两根之和与积（韦达）</span></a></li>
+    <li><a href="#ineq" title="Solving Quadratic Inequalities 二次不等式"><span class="n">2.3</span><span class="lb">二次不等式</span></a></li>
+    <li class="sub"><a href="#deep-sign" title="符号表与图像法是同一件事"><span class="n">└</span><span class="lb">为什么“两根里 / 外”</span></a></li>
+    <li class="rail-sep" role="presentation"></li>
+    <li><a href="#lab" title="交互实验室：拖动 a,b,c"><span class="n">∑</span><span class="lb">交互实验室</span></a></li>
+    <li><a href="#ex" title="例题精讲"><span class="n">✎</span><span class="lb">例题精讲</span></a></li>
+    <li><a href="#tips" title="Key Tips 解题要点"><span class="n">★</span><span class="lb">Key Tips</span></a></li>
+    <li><a href="#check" title="自查清单 Quick Check"><span class="n">✓</span><span class="lb">自查清单</span></a></li>
+  </ul>
+  <div class="rail-foot"><span id="railPct">0%</span><span class="rail-prog"><i id="railBar"></i></span></div>
+</nav>
+
+<div class="page">
+
+<header class="hero">
+  <div class="eyebrow">A Level · Pure Mathematics</div>
+  <h1>Quadratic <em>\(ax^2+bx+c\)</em><br>核心知识点全景</h1>
+  <p class="lead">配方 · 判别式 · 二次不等式 —— 一条主线串起四个模块。左侧悬浮目录可随时收起，点击直达任意模块；每个模块底部都有可展开的“延伸思考”（不考、但能解释公式从哪来）。</p>
+  <div class="hero-rule"></div>
+</header>
+
+<div class="wrap">
+
+  <main>
+
+    <!-- ============ MAP ============ -->
+    <section id="map">
+      <div class="sec-head"><span class="sec-num" style="background:#12a08a">◎</span><h2>知识地图</h2></div>
+      <div class="mapwrap">
+        <div class="mapscroll">
+        <svg viewBox="0 0 1010 520" role="img" aria-label="Quadratic knowledge mind map">
+          <defs>
+            <style>
+              .root{font:700 20px "Segoe UI","PingFang SC",sans-serif;fill:#fff}
+              .rootsub{font:400 16px Georgia,serif;fill:#d6f2ec}
+              .nd{font:600 15px "Segoe UI","PingFang SC",sans-serif;fill:#fff}
+              .ch{font:500 14px "Segoe UI","PingFang SC",sans-serif}
+              .cn{font:500 14px "Segoe UI","PingFang SC",sans-serif;fill:#fff}
+            </style>
+          </defs>
+
+          <!-- connectors -->
+          <g fill="none" stroke-width="3" stroke-linecap="round">
+            <path d="M205,260 C255,260 255,70 305,70"   stroke="#e8823a"/>
+            <path d="M205,260 C255,260 255,195 305,195" stroke="#2f7fbf"/>
+            <path d="M205,260 C255,260 255,330 305,330" stroke="#8e5ab8"/>
+            <path d="M205,260 C255,260 255,445 305,445" stroke="#25a35a"/>
+          </g>
+          <g fill="none" stroke-width="1.8" stroke-linecap="round">
+            <path d="M525,70 C595,70 595,32 660,32"   stroke="#e8823a" opacity=".7"/>
+            <path d="M525,70 C595,70 595,70 660,70"   stroke="#e8823a" opacity=".7"/>
+            <path d="M525,70 C595,70 595,108 660,108" stroke="#e8823a" opacity=".7"/>
+
+            <path d="M525,195 C595,195 595,140 660,140" stroke="#2f7fbf" opacity=".7"/>
+            <path d="M525,195 C595,195 595,178 660,178" stroke="#2f7fbf" opacity=".7"/>
+            <path d="M525,195 C595,195 595,216 660,216" stroke="#2f7fbf" opacity=".7"/>
+            <path d="M525,195 C595,195 595,254 660,254" stroke="#2f7fbf" opacity=".7"/>
+
+            <path d="M525,330 C595,330 595,292 660,292" stroke="#8e5ab8" opacity=".7"/>
+            <path d="M525,330 C595,330 595,330 660,330" stroke="#8e5ab8" opacity=".7"/>
+            <path d="M525,330 C595,330 595,368 660,368" stroke="#8e5ab8" opacity=".7"/>
+
+            <path d="M525,445 C595,445 595,407 660,407" stroke="#25a35a" opacity=".7"/>
+            <path d="M525,445 C595,445 595,445 660,445" stroke="#25a35a" opacity=".7"/>
+            <path d="M525,445 C595,445 595,483 660,483" stroke="#25a35a" opacity=".7"/>
+          </g>
+
+          <!-- root -->
+          <rect x="20" y="212" width="185" height="96" rx="14" fill="#12a08a"/>
+          <text class="root" x="112" y="251" text-anchor="middle">Quadratic</text>
+          <text class="rootsub" x="112" y="281" text-anchor="middle">ax² + bx + c</text>
+
+          <!-- branch nodes -->
+          <rect x="305" y="46"  width="220" height="48" rx="11" fill="#e8823a"/>
+          <text class="nd" x="415" y="76" text-anchor="middle">Completing the Square</text>
+
+          <rect x="305" y="171" width="220" height="48" rx="11" fill="#2f7fbf"/>
+          <text class="nd" x="415" y="201" text-anchor="middle">Discriminant</text>
+
+          <rect x="305" y="306" width="220" height="48" rx="11" fill="#8e5ab8"/>
+          <text class="nd" x="415" y="336" text-anchor="middle">Solving Inequalities</text>
+
+          <rect x="305" y="421" width="220" height="48" rx="11" fill="#25a35a"/>
+          <text class="nd" x="415" y="451" text-anchor="middle">Key Tips</text>
+
+          <!-- chips: orange -->
+          <g>
+            <rect x="660" y="17" width="330" height="30" rx="8" fill="#fff" stroke="#e8823a" stroke-width="1.6"/>
+            <text class="ch" fill="#b8641f" x="676" y="37">Vertex form  a(x − h)² + k</text>
+            <rect x="660" y="55" width="330" height="30" rx="8" fill="#fff" stroke="#e8823a" stroke-width="1.6"/>
+            <text class="ch" fill="#b8641f" x="676" y="75">Vertex  (h, k)</text>
+            <rect x="660" y="93" width="330" height="30" rx="8" fill="#fff" stroke="#e8823a" stroke-width="1.6"/>
+            <text class="ch" fill="#b8641f" x="676" y="113">Axis of symmetry  x = h</text>
+          </g>
+          <!-- chips: blue -->
+          <g>
+            <rect x="660" y="125" width="330" height="30" rx="8" fill="#fff" stroke="#2f7fbf" stroke-width="1.6"/>
+            <text class="ch" fill="#1f6ba8" x="676" y="145">D = b² − 4ac</text>
+            <rect x="660" y="163" width="330" height="30" rx="8" fill="#fff" stroke="#2f7fbf" stroke-width="1.6"/>
+            <text class="ch" fill="#1f6ba8" x="676" y="183">D &gt; 0 → 2 distinct real roots</text>
+            <rect x="660" y="201" width="330" height="30" rx="8" fill="#fff" stroke="#2f7fbf" stroke-width="1.6"/>
+            <text class="ch" fill="#1f6ba8" x="676" y="221">D = 0 → 1 repeated real root</text>
+            <rect x="660" y="239" width="330" height="30" rx="8" fill="#fff" stroke="#2f7fbf" stroke-width="1.6"/>
+            <text class="ch" fill="#1f6ba8" x="676" y="259">D &lt; 0 → no real roots</text>
+          </g>
+          <!-- chips: purple -->
+          <g>
+            <rect x="660" y="277" width="330" height="30" rx="8" fill="#fff" stroke="#8e5ab8" stroke-width="1.6"/>
+            <text class="ch" fill="#7846a5" x="676" y="297">Find roots, sketch parabola</text>
+            <rect x="660" y="315" width="330" height="30" rx="8" fill="#fff" stroke="#8e5ab8" stroke-width="1.6"/>
+            <text class="ch" fill="#7846a5" x="676" y="335">a &gt; 0 → outside the roots</text>
+            <rect x="660" y="353" width="330" height="30" rx="8" fill="#fff" stroke="#8e5ab8" stroke-width="1.6"/>
+            <text class="ch" fill="#7846a5" x="676" y="373">a &lt; 0 → between the roots</text>
+          </g>
+          <!-- chips: green -->
+          <g>
+            <rect x="660" y="392" width="330" height="30" rx="8" fill="#fff" stroke="#25a35a" stroke-width="1.6"/>
+            <text class="ch" fill="#1a7f45" x="676" y="412">Factor a out first</text>
+            <rect x="660" y="430" width="330" height="30" rx="8" fill="#fff" stroke="#25a35a" stroke-width="1.6"/>
+            <text class="ch" fill="#1a7f45" x="676" y="450">Discriminant: real roots only</text>
+            <rect x="660" y="468" width="330" height="30" rx="8" fill="#fff" stroke="#25a35a" stroke-width="1.6"/>
+            <text class="ch" fill="#1a7f45" x="676" y="488">Sketch from vertex &amp; intercepts</text>
+          </g>
+        </svg>
+        </div>
+      </div>
+      <p class="mapcap">↑ 四条主线：配方 → 判别式 → 二次不等式 → 解题技巧（横向可滚动查看完整内容）</p>
+    </section>
+
+    <!-- ============ 1 OBJECTIVES ============ -->
+    <section id="obj">
+      <div class="sec-head"><span class="sec-num">1</span><h2>Core Learning Objectives</h2></div>
+      <p class="muted">学完本节，你应当能够：</p>
+      <div class="goals">
+        <div class="goal">
+          <b>① 配方 Complete the square</b>
+          <span>把 \(ax^2+bx+c\) 化为顶点式，并利用配方后的形式读取顶点、对称轴与最值。</span>
+        </div>
+        <div class="goal">
+          <b>② 判别式 Find the discriminant</b>
+          <span>计算 \(D=b^2-4ac\)，并据此判断根的个数与抛物线与 \(x\) 轴的交点个数。</span>
+        </div>
+        <div class="goal">
+          <b>③ 解二次不等式 Solve quadratic inequalities</b>
+          <span>求解 \(ax^2+bx+c>0\) 或 \(ax^2+bx+c<0\) 形式的二次不等式。</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2.1 ============ -->
+    <section id="cts">
+      <div class="sec-head"><span class="sec-num" style="background:var(--orange)">2.1</span><h2>Completing the Square 配方</h2></div>
+
+      <div class="card">
+        <div class="block or" style="margin-top:0">
+          <div class="bt">Purpose 目的</div>
+        </div>
+        <p>把 \(ax^2+bx+c\) 改写为<b>顶点式（vertex form）</b>：</p>
+        $$a(x-h)^2+k,\qquad (h,k)\ \text{是抛物线的顶点}$$
+        <p class="muted" style="font-size:14px">顶点式是所有性质的“母版”：顶点、对称轴、最值、单调区间都能一眼读出。</p>
+
+        <div class="block or"><div class="bt">Steps for \(a=1\)</div></div>
+        <ol class="steps">
+          <li>从 \(x^2+bx+c\) 出发；</li>
+          <li>取 \(b\) 的一半，再平方：\(\left(\dfrac{b}{2}\right)^2\)；</li>
+          <li>在式子里<b>加上再减去</b>这个数：
+            $$x^2+bx+\left(\tfrac{b}{2}\right)^2-\left(\tfrac{b}{2}\right)^2+c$$
+          </li>
+          <li>把完全平方项归拢：
+            $$\left(x+\frac{b}{2}\right)^2+\left(c-\frac{b^2}{4}\right)$$
+          </li>
+        </ol>
+
+        <div class="block or"><div class="bt">General case \(ax^2+bx+c\)（\(a\neq 1\)）</div></div>
+        <ol class="steps">
+          <li>先从前两项提出 \(a\)：
+            $$a\left[x^2+\frac{b}{a}x\right]+c$$
+          </li>
+          <li>在括号内部配方：
+            $$a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c$$
+          </li>
+          <li>化简（把 \(a\) 乘回去）：
+            $$a\left(x+\frac{b}{2a}\right)^2+\left(c-\frac{b^2}{4a}\right)$$
+          </li>
+        </ol>
+
+        <div class="block or"><div class="bt">Applications 应用</div></div>
+        <ul class="tight">
+          <li>求 \(y=ax^2+bx+c\) 的<b>顶点</b>：顶点坐标为
+            $$\left(-\frac{b}{2a},\; c-\frac{b^2}{4a}\right)$$
+          </li>
+          <li>作图：由顶点、对称轴 \(x=-\dfrac{b}{2a}\)、开口方向（\(a>0\) 向上 / \(a<0\) 向下）快速勾出图像。</li>
+          <li>求最值：\(a>0\) 时 \(y_{\min}=c-\dfrac{b^2}{4a}\)；\(a<0\) 时 \(y_{\max}=c-\dfrac{b^2}{4a}\)。</li>
+        </ul>
+
+        <!-- ---- 延伸思考：根 / 因式 / 交点 ---- -->
+        <details class="deep" id="deep-roots">
+          <summary><span class="dv">延伸思考</span>“根 · 因式 · 交点”其实是同一件事<span class="st"></span></summary>
+          <div class="dbody">
+            <p>对某个数 \(x_0\) 来说，下面三句话说的完全是同一件事：</p>
+            <div class="dchain">
+              <span>① \(x_0\) 是方程 \(ax^2+bx+c=0\) 的实根</span><i>&#8660;</i>
+              <span>② \((x-x_0)\) 是 \(ax^2+bx+c\) 的一个因式</span><i>&#8660;</i>
+              <span>③ 点 \((x_0,\,0)\) 在抛物线 \(y=ax^2+bx+c\) 上</span>
+            </div>
+            <p>② 写开来，就是把式子拆成两个一次因式：</p>
+            $$ax^2+bx+c=a(x-x_1)(x-x_2)$$
+            <p>③ 换成人话就是“图像与 \(x\) 轴有交点”。<b>因式分解、解方程、找交点，是同一件事的三种语言</b>。这一点想通以后，配方、判别式、不等式就不再是三块要分别背的知识，而是一条链上的三环。</p>
+            <div class="didea"><b>顺手的收益：</b>一旦成功因式分解，对称轴 \(x=\dfrac{x_1+x_2}{2}\)、顶点纵坐标、不等式解集都能直接读出来，不必再配方；反过来，配方之后也就知道了两根之和与积，可以用来校验分解对不对。</div>
+            <div class="dnote"><b>常见误解：</b>很多人把“根”当成方程的东西、“交点”当成图像的东西，各记一套。其实 \(x\) 轴上的点纵坐标恒为 \(0\)，所以“解 \(y=0\)”和“找 \(y=0\) 的点”本来就无从区分。</div>
+          </div>
+        </details>
+
+
+        <!-- ---- 延伸思考：h = -b/2a ---- -->
+        <details class="deep" id="deep-h">
+          <summary><span class="dv">延伸思考</span>顶点横坐标为什么一定是 \(-\dfrac{b}{2a}\)？<span class="st"></span></summary>
+          <div class="dbody">
+            <p>课本通常直接把这个结论给出来。这里把两条路都走一遍——两条路互相印证，才算真的懂。</p>
+
+            <h4>路线一 · 纯代数（把 \(a\) 提出来硬配）</h4>
+            $$y=a\left(x^2+\frac{b}{a}x\right)+c=a\left[\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a^2}\right]+c$$
+            $$=a\left(x+\frac{b}{2a}\right)^2+c-\frac{b^2}{4a}=a\left(x+\frac{b}{2a}\right)^2+\frac{4ac-b^2}{4a}$$
+            <p>平方项 \(\left(x+\dfrac{b}{2a}\right)^2\ge 0\)，且只有 \(x=-\dfrac{b}{2a}\) 时取到 \(0\)。所以</p>
+            $$h=-\frac{b}{2a},\qquad k=\frac{4ac-b^2}{4a}=-\frac{D}{4a}$$
+
+            <h4>路线二 · 几何（用对称性）</h4>
+            <p>核心是一句关于对称性的话：<span class="muted">“\((h+\Delta h,\ y)\) 与 \((h-\Delta h,\ y)\) 都在图像上 \(\Rightarrow\) 对称轴 \(x=h\)”</span>。意思是：抛物线关于对称轴左右对称，所以<b>同一高度上的两个点必然关于对称轴互为镜像</b>，对称轴就是它们横坐标的中点。</p>
+            <p>把“同一高度”取成 \(y=0\)，这两点就是两根 \(x_1,x_2\)，于是</p>
+            $$\text{AOS}:\quad x=\frac{x_1+x_2}{2}$$
+            <p>再由韦达定理 \(x_1+x_2=-\dfrac{b}{a}\)（见 2.2 的延伸思考），代进去恰好又得到 \(-\dfrac{b}{2a}\)。两条路闭环。</p>
+
+            <h4>顺便看清 \(h,k\) 各自的含义</h4>
+            <p>\(k\) 是平方项取 \(0\) 时的函数值，所以它就是最值：</p>
+            <table class="tbl">
+              <thead><tr><th style="width:26%">开口方向</th><th style="width:30%">值域</th><th>最值</th></tr></thead>
+              <tbody>
+                <tr><td>\(a&gt;0\)（向上）</td><td>\(y\ge k\)</td><td>最小值 \(k=-\dfrac{D}{4a}\)</td></tr>
+                <tr><td>\(a&lt;0\)（向下）</td><td>\(y\le k\)</td><td>最大值 \(k=-\dfrac{D}{4a}\)</td></tr>
+              </tbody>
+            </table>
+            <div class="didea"><b>恒成立问题一眼可见：</b>\(a&gt;0\) 且 \(k&gt;0\) 就是 \(D&lt;0\)，也就是“图像整体在 \(x\) 轴上方、\(ax^2+bx+c&gt;0\) 对一切实数成立”。最值的语言和判别式的语言，在这里合流。</div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ============ 2.2 ============ -->
+    <section id="disc">
+      <div class="sec-head"><span class="sec-num" style="background:var(--blue)">2.2</span><h2>The Discriminant 判别式</h2></div>
+
+      <div class="card">
+        <div class="block bl" style="margin-top:0"><div class="bt">Definition 定义</div></div>
+        <p>对方程 \(ax^2+bx+c=0\;(a\neq 0)\)，判别式 \(D\) 定义为：</p>
+        $$D=b^2-4ac$$
+
+        <div class="block bl"><div class="bt">Interpretation 含义</div></div>
+        <table class="tbl">
+          <thead><tr><th style="width:130px">判别式</th><th style="width:230px">根的情况</th><th>图像语言</th></tr></thead>
+          <tbody>
+            <tr><td>\(D>0\)</td><td>两个<b>不同</b>的实根 <span class="tag bl">2 distinct real roots</span></td><td>抛物线与 \(x\) 轴有 <b>2</b> 个交点</td></tr>
+            <tr><td>\(D=0\)</td><td>一个<b>重根</b>（double root） <span class="tag bl">1 repeated real root</span></td><td>抛物线与 \(x\) 轴<b>相切</b>，只有 1 个交点</td></tr>
+            <tr><td>\(D<0\)</td><td><b>无实根</b>（两根为共轭复数） <span class="tag bl">no real roots</span></td><td>抛物线与 \(x\) 轴<b>不相交</b></td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:16px">配合求根公式一起记忆：</p>
+        $$x=\frac{-b\pm\sqrt{D}}{2a}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+        <p class="muted" style="font-size:14px">\(\sqrt{D}\) 是否存在实数意义，正是 \(D\ge 0\) 与 \(D<0\) 的分水岭。</p>
+
+        <div class="block bl"><div class="bt">Applications 应用</div></div>
+        <ul class="tight">
+          <li>判断 \(ax^2+bx+c=0\) 实根的<b>个数</b>（证明题常客）；</li>
+          <li>判断二次函数的图像是否与 \(x\) 轴相交（也用于“恒正 / 恒负”类问题）；</li>
+          <li>含参数问题中，用 \(D>0,\;D=0,\;D<0\) 分情况讨论。</li>
+        </ul>
+
+        <!-- ---- 延伸思考：判别式的来历 ---- -->
+        <details class="deep" id="deep-disc">
+          <summary><span class="dv">延伸思考</span>判别式 \(b^2-4ac\) 是被“逼”出来的<span class="st"></span></summary>
+          <div class="dbody">
+            <p>判别式 \(D=b^2-4ac\) 常被当成一个要背的公式，其实它是配方之后被“逼”出来的必然结论。</p>
+
+            <h4>起点：配方后的式子</h4>
+            $$y=a\left(x+\frac{b}{2a}\right)^2+\frac{4ac-b^2}{4a}$$
+            <p>其中平方项 \(\ge 0\)。图像与 \(x\) 轴有没有交点，就看这个“最值”落在 \(x\) 轴的哪一侧。</p>
+
+            <h4>两种开口分别讨论</h4>
+            <table class="tbl">
+              <thead><tr><th style="width:20%">情形</th><th style="width:42%">要有交点的要求</th><th>推出</th></tr></thead>
+              <tbody>
+                <tr><td>\(a&gt;0\)</td><td>最小值 \(\dfrac{4ac-b^2}{4a}\le 0\)（分母为正）</td><td>\(4ac-b^2\le 0\)，即 \(b^2-4ac\ge 0\)</td></tr>
+                <tr><td>\(a&lt;0\)</td><td>最大值 \(\dfrac{4ac-b^2}{4a}\ge 0\)（分母为负）</td><td>\(4ac-b^2\le 0\)，同样 \(b^2-4ac\ge 0\)</td></tr>
+              </tbody>
+            </table>
+            <p>两条路得到同一个条件，而且过程中 \(a\) 的正负恰好被“分母的正负”与“不等号方向”相互抵消。<b>这说明“有没有实根”与开口方向无关，只取决于 \(b^2-4ac\) 的符号</b>——正因如此，它才可以被单独抽出来当判据，这就是判别式 \(D=b^2-4ac\) 的合法性来源。</p>
+
+            <h4>求根公式是同一路走出来的</h4>
+            <p>令 \(a\left(x+\dfrac{b}{2a}\right)^2+\dfrac{4ac-b^2}{4a}=0\)：</p>
+            $$\left(x+\frac{b}{2a}\right)^2=\frac{b^2-4ac}{4a^2}\qquad\Longrightarrow\qquad x+\frac{b}{2a}=\pm\frac{\sqrt{b^2-4ac}}{2a}$$
+            $$x=\frac{-b\pm\sqrt{D}}{2a}$$
+            <div class="dnote"><b>为什么分母不用加绝对值？</b>因为开方时本来就带 \(\pm\)，\(a&lt;0\) 时 \(\dfrac{1}{|a|}=-\dfrac{1}{a}\) 的那个负号被 \(\pm\) 吸收掉了。这也正是 \(\sqrt{D}\) 必须有实数意义的原因：\(D&lt;0\) 时，这一步直接断掉。</div>
+          </div>
+        </details>
+
+
+        <!-- ---- 延伸思考：韦达定理 ---- -->
+        <details class="deep" id="deep-vieta">
+          <summary><span class="dv">延伸思考</span>因式分解视角：两根之和与两根之积<span class="st"></span></summary>
+          <div class="dbody">
+            <p>把同一个函数换一种写法 \(y=a(x-x_1)(x-x_2)\)，再乘开、对比系数，就得到一对方程。这就是韦达定理（Vieta's formulas）——它的<b>全部内容</b>只是“把因式乘开、对比系数”这一步。</p>
+
+            <h4>怎么来：乘开对比系数</h4>
+            $$a(x-x_1)(x-x_2)=ax^2-a(x_1+x_2)x+a\,x_1x_2$$
+            <p>它要恒等于 \(ax^2+bx+c\)，于是比较同次项系数：</p>
+            $$-a(x_1+x_2)=b,\qquad a\,x_1x_2=c$$
+            $$x_1+x_2=-\frac{b}{a},\qquad x_1x_2=\frac{c}{a}$$
+
+            <h4>三个立刻能用的推论</h4>
+            <ul class="tight">
+              <li><b>对称轴：</b>\(x=\dfrac{x_1+x_2}{2}=-\dfrac{b}{2a}\)，与配方得到的结论一致（两条路闭环）。</li>
+              <li><b>不解方程也能算：</b>\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2\)；\(\dfrac{1}{x_1}+\dfrac{1}{x_2}=\dfrac{x_1+x_2}{x_1x_2}\)（需 \(x_1x_2\ne 0\)）。</li>
+              <li><b>反推方程：</b>以 \(x_1,x_2\) 为两根的二次方程可写成 \(x^2-(x_1+x_2)x+x_1x_2=0\)。</li>
+            </ul>
+
+            <div class="didea"><b>与判别式联动（很省事）：</b>若两根<b>异号</b>，则 \(x_1x_2=\dfrac{c}{a}&lt;0\)，即 \(ac&lt;0\)，于是 \(D=b^2-4ac&gt;0\)——一定有两个不同实根，连判别式都不必算。</div>
+            <div class="dnote"><b>边界提醒：</b>韦达定理在 \(D&lt;0\)（复根）时依然成立，但 A Level 的实根问题里，用它之前要先确认 \(D\ge 0\)，否则由 \(x_1x_2&gt;0\) 并不能推出“两根同号”。</div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ============ 2.3 ============ -->
+    <section id="ineq">
+      <div class="sec-head"><span class="sec-num" style="background:var(--purple)">2.3</span><h2>Solving Quadratic Inequalities 二次不等式</h2></div>
+
+      <div class="card">
+        <div class="block pu" style="margin-top:0"><div class="bt">General form 一般形式</div></div>
+        <p>形如</p>
+        $$ax^2+bx+c>0 \qquad\text{或}\qquad ax^2+bx+c<0$$
+        <p>的不等式（\(ax^2+bx+c\le 0\)、\(ax^2+bx+c\ge 0\) 同理处理，端点是否取到看不等号是否含等号即可）。</p>
+
+        <h3>标准三步法</h3>
+        <ol class="steps">
+          <li><b>找根：</b>先解 \(ax^2+bx+c=0\)（因式分解或用求根公式），必要时先算 \(D\)。</li>
+          <li><b>画图：</b>由 \(a\) 定开口方向、由两根定与 \(x\) 轴交点，勾出抛物线草图。</li>
+          <li><b>读解：</b>看图像在 \(x\) 轴上方（\(>0\)）还是下方（\(<0\)）的部分，写出对应的 \(x\) 区间。</li>
+        </ol>
+
+        <div class="block pu"><div class="bt">口诀：\(a>0\) 时</div></div>
+        <table class="tbl">
+          <thead><tr><th style="width:44%">不等式</th><th>解集（\(x_1&lt;x_2\) 为两根）</th></tr></thead>
+          <tbody>
+            <tr><td>\(a>0,\quad ax^2+bx+c>0\)</td><td><b>两根之外</b>：\(x&lt;x_1\) 或 \(x>x_2\) <span class="tag pu">outside the roots</span></td></tr>
+            <tr><td>\(a>0,\quad ax^2+bx+c<0\)</td><td><b>两根之间</b>：\(x_1&lt;x&lt;x_2\) <span class="tag pu">between the roots</span></td></tr>
+            <tr><td>\(a<0\)</td><td>把不等式两边同乘 \(-1\)（不等号反向）化为 \(a>0\) 再做，或直接把上述结论“里外对调”。</td></tr>
+          </tbody>
+        </table>
+
+        <div class="block pu"><div class="bt">Beware：\(D\le 0\) 的边界情况</div></div>
+        <table class="tbl">
+          <thead><tr><th style="width:22%">情形</th><th style="width:39%">\(ax^2+bx+c>0\)</th><th>\(ax^2+bx+c<0\)</th></tr></thead>
+          <tbody>
+            <tr><td>\(a>0,\;D=0\)</td><td>除 \(x=x_0\) 外的所有实数</td><td>无解（\(\varnothing\)）</td></tr>
+            <tr><td>\(a>0,\;D<0\)</td><td>恒成立，解集为 \(\mathbb{R}\)</td><td>无解（\(\varnothing\)）</td></tr>
+            <tr><td>\(a<0,\;D=0\)</td><td>无解（\(\varnothing\)）</td><td>除 \(x=x_0\) 外的所有实数</td></tr>
+            <tr><td>\(a<0,\;D<0\)</td><td>无解（\(\varnothing\)）</td><td>恒成立，解集为 \(\mathbb{R}\)</td></tr>
+          </tbody>
+        </table>
+        <p class="muted" style="font-size:14px">记忆方式：图像整体在 \(x\) 轴上方 ⇒ \(>0\) 恒成立；整体在下方 ⇒ \(<0\) 恒成立；相切 ⇒ 只有一个点不满足。</p>
+
+        <!-- ---- 延伸思考：符号表 ---- -->
+        <details class="deep" id="deep-sign">
+          <summary><span class="dv">延伸思考</span>为什么是“两根之外 / 两根之间”？一张符号表说清<span class="st"></span></summary>
+          <div class="dbody">
+            <p>口诀背下来容易忘，看清符号表就再也不用背。</p>
+            <p>先因式分解：\(ax^2+bx+c=a(x-x_1)(x-x_2)\)（设 \(x_1&lt;x_2\)）。整个式子的符号 = \(a\) 的符号 × \((x-x_1)\) 的符号 × \((x-x_2)\) 的符号。只看后面两个因式：</p>
+            <table class="tbl">
+              <thead><tr><th style="width:26%">区间</th><th style="width:24%">\(x-x_1\)</th><th style="width:24%">\(x-x_2\)</th><th>乘积 \((x-x_1)(x-x_2)\)</th></tr></thead>
+              <tbody>
+                <tr><td>\(x&lt;x_1\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)（正）</td></tr>
+                <tr><td>\(x_1&lt;x&lt;x_2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)（负）</td></tr>
+                <tr><td>\(x&gt;x_2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)（正）</td></tr>
+              </tbody>
+            </table>
+            <p>再乘上 \(a\)：</p>
+            <ul class="tight">
+              <li>\(a&gt;0\)：乘积为正的地方（<b>两根之外</b>）使式子 \(&gt;0\)；乘积为负的地方（<b>两根之间</b>）使式子 \(&lt;0\)。</li>
+              <li>\(a&lt;0\)：整体符号取反，<b>里外对调</b>——这正是 2.3 表格里“两边同乘 \(-1\)、不等号反向”的实质。</li>
+            </ul>
+            <div class="didea"><b>图像法与符号表法是同一件事：</b>“图像在 \(x\) 轴上方”就是“式子 \(&gt;0\)”，而“上方”的那一段，正好是乘积为 \(+\) 的那一段。符号表是代数版，草图是几何版，两者只是换了个说法。</div>
+            <div class="dnote"><b>端点取不取：</b>\((x-x_1)(x-x_2)\) 在 \(x=x_1,x_2\) 处等于 \(0\)，所以 \(&gt;0\) / \(&lt;0\) 用空心点（不取），\(\ge 0\) / \(\le 0\) 用实心点（取到）。这是最容易丢分的一处细节。</div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ============ LAB ============ -->
+    <section id="lab">
+      <div class="sec-head"><span class="sec-num" style="background:#0f8f9e">∑</span><h2>交互实验室：拖动 \(a,b,c\) 看图像</h2></div>
+      <p class="muted">拖动滑块改变 \(y=ax^2+bx+c\)，右侧实时给出配方结果、顶点、判别式、根与不等式解集。曲线在 \(x\) 轴<b style="color:var(--teal-d)">上方</b>画绿色、在<b style="color:#b5452f">下方</b>画橙色，一眼看清 \(>0\) / \(<0\) 的区间。</p>
+
+      <div class="explorer">
+        <div class="canvasbox"><canvas id="graph"></canvas></div>
+        <div class="ctrls">
+          <div class="ctrl">
+            <div class="row"><span>\(a\)（开口方向）</span><span class="val" id="va">1</span></div>
+            <input type="range" id="sa" min="-2" max="2" step="0.25" value="1">
+          </div>
+          <div class="ctrl">
+            <div class="row"><span>\(b\)（一次项）</span><span class="val" id="vb">-2</span></div>
+            <input type="range" id="sb" min="-8" max="8" step="0.25" value="-2">
+          </div>
+          <div class="ctrl">
+            <div class="row"><span>\(c\)（常数项）</span><span class="val" id="vc">-3</span></div>
+            <input type="range" id="sc" min="-8" max="8" step="0.25" value="-3">
+          </div>
+          <div class="ctrl">
+            <div class="row" style="margin-bottom:7px"><span>常用样例</span></div>
+            <div class="presets">
+              <button data-p="1,-2,-3">x²−2x−3</button>
+              <button data-p="1,2,1">x²+2x+1</button>
+              <button data-p="1,1,1">x²+x+1</button>
+              <button data-p="-1,4,-3">−x²+4x−3</button>
+              <button data-p="2,-4,-1">2x²−4x−1</button>
+              <button data-p="-0.5,2,1">−0.5x²+2x+1</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <div class="row" style="margin-bottom:7px"><span>高亮解集</span></div>
+            <div class="toggle">
+              <button id="hg" class="on">y &gt; 0 部分</button>
+              <button id="hl">y &lt; 0 部分</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="readout">
+        <div class="rrow"><div class="rlab">函数 / 方程</div><div class="rval" id="r-eq"></div></div>
+        <div class="rrow"><div class="rlab">顶点式</div><div class="rval" id="r-vf"></div></div>
+        <div class="rrow"><div class="rlab">顶点 Vertex</div><div class="rval" id="r-v"></div></div>
+        <div class="rrow"><div class="rlab">对称轴 Axis</div><div class="rval" id="r-axis"></div></div>
+        <div class="rrow"><div class="rlab">判别式 D = b²−4ac</div><div class="rval" id="r-d"></div></div>
+        <div class="rrow"><div class="rlab">根的个数与性质</div><div class="rval" id="r-nat"></div></div>
+        <div class="rrow"><div class="rlab">根 Roots</div><div class="rval" id="r-roots"></div></div>
+        <div class="rrow"><div class="rlab">y &gt; 0 解集</div><div class="rval" id="r-pos"></div></div>
+        <div class="rrow"><div class="rlab">y &lt; 0 解集</div><div class="rval" id="r-neg"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ EXAMPLES ============ -->
+    <section id="ex">
+      <div class="sec-head"><span class="sec-num" style="background:#5b6b7c">E</span><h2>例题精讲</h2></div>
+
+      <div class="ex">
+        <div class="q"><span class="tag or">配方</span> 把 \(x^2-6x+5\) 化为顶点式，并写出顶点与对称轴。</div>
+        <div class="sol">
+          <div class="line">\(b=-6\Rightarrow \dfrac{b}{2}=-3,\ \left(\dfrac{b}{2}\right)^2=9\)</div>
+          <div class="line">$$x^2-6x+5=x^2-6x+9-9+5=(x-3)^2-4$$</div>
+          <div class="line">所以顶点为 \((3,-4)\)，对称轴 \(x=3\)，开口向上，最小值 \(-4\)。</div>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="q"><span class="tag or">配方</span> 把 \(2x^2+8x+3\) 化为顶点式。</div>
+        <div class="sol">
+          <div class="line">提出 \(a=2\)：\(\;2\left[x^2+4x\right]+3\)</div>
+          <div class="line">括号内配方：\(\;2\left[(x+2)^2-4\right]+3\)</div>
+          <div class="line">$$=2(x+2)^2-8+3=2(x+2)^2-5$$</div>
+          <div class="line">顶点 \((-2,-5)\)。验算：\(2(x+2)^2-5=2x^2+8x+8-5=2x^2+8x+3\ \checkmark\)</div>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="q"><span class="tag bl">判别式</span> 判断 \(3x^2-2x+5=0\) 的实根个数；\(k\) 取何值时 \(x^2+kx+4=0\) 有两个不同实根？</div>
+        <div class="sol">
+          <div class="line">① \(D=(-2)^2-4\cdot 3\cdot 5=4-60=-56<0\)，故<b>无实根</b>，图像与 \(x\) 轴不相交。</div>
+          <div class="line">② 需 \(D=k^2-16>0\Rightarrow k^2>16\)，即 \(k<-4\) 或 \(k>4\)。</div>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="q"><span class="tag pu">不等式</span> 解 \(x^2-2x-3>0\)。</div>
+        <div class="sol">
+          <div class="line">因式分解：\((x-3)(x+1)>0\)，得两根 \(x_1=-1,\;x_2=3\)。</div>
+          <div class="line">\(a=1>0\)，开口向上，\(>0\) 取<b>两根之外</b>：\(\;x<-1\) 或 \(x>3\)。</div>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="q"><span class="tag pu">不等式</span> 解 \(-x^2+4x-3\ge 0\)。</div>
+        <div class="sol">
+          <div class="line">先化为正系数，两边乘 \(-1\) 并反向：\(x^2-4x+3\le 0\)。</div>
+          <div class="line">因式分解：\((x-1)(x-3)\le 0\)，两根 \(1,\;3\)，取<b>两根之间</b>：</div>
+          <div class="line">$$1\le x\le 3$$</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIPS ============ -->
+    <section id="tips">
+      <div class="sec-head"><span class="sec-num" style="background:var(--green)">★</span><h2>Key Tips 解题要点</h2></div>
+      <div class="tips">
+        <div class="tip"><b>Factor a out first</b><span>\(a\neq 1\) 时先提出二次项系数，再配方；否则完全平方项会算错。始终先检查“能不能提 \(a\)”。</span></div>
+        <div class="tip"><b>Discriminant: real roots only</b><span>\(D\) 只回答“实数根”的问题。\(D<0\) 不等于“无根”，而是“无实根”（两根为共轭复数）。</span></div>
+        <div class="tip"><b>Sketch from vertex &amp; intercepts</b><span>画图三要素：顶点（来自配方）、\(y\) 轴截距（\(x=0\) 时 \(y=c\)）、\(x\) 轴截距（来自求根）。三点即可定形。</span></div>
+      </div>
+    </section>
+
+    <!-- ============ CHECK ============ -->
+    <section id="check">
+      <div class="sec-head"><span class="sec-num" style="background:#0f8f9e">✓</span><h2>自查清单 Quick Check</h2></div>
+
+      <details class="quiz">
+        <summary>1. 用一句话说明：为什么配方后就能立刻读出顶点？</summary>
+        <div class="body">
+          \(a(x-h)^2+k\) 中 \((x-h)^2\ge 0\) 恒成立且当且仅当 \(x=h\) 时取 \(0\)。因此 \(a>0\) 时最小值在 \(x=h\) 处取得，为 \(k\)，顶点即 \((h,k)\)；\(a<0\) 时最大值同样在 \(x=h\) 处取得。
+        </div>
+      </details>
+
+      <details class="quiz">
+        <summary>2. 已知 \(D=0\)，方程 \(ax^2+bx+c=0\) 有几个根？图像与 \(x\) 轴什么关系？</summary>
+        <div class="body">
+          有<b>一个重根</b>（double root）\(x=-\dfrac{b}{2a}\)；抛物线与 \(x\) 轴<b>相切</b>，只有一个公共点，该点恰好是顶点（顶点落在 \(x\) 轴上）。
+        </div>
+      </details>
+
+      <details class="quiz">
+        <summary>3. 解 \(2x^2-5x+2\le 0\)。</summary>
+        <div class="body">
+          因式分解 \((2x-1)(x-2)\le 0\)，两根 \(\dfrac12,\;2\)；\(a=2>0\) 取两根之间，解集为 \(\dfrac12\le x\le 2\)。
+        </div>
+      </details>
+
+      <details class="quiz">
+        <summary>4. 求证：对任意 \(x\in\mathbb{R}\)，\(x^2-2x+3>0\) 恒成立。</summary>
+        <div class="body">
+          配方得 \(x^2-2x+3=(x-1)^2+2\ge 2>0\)。（也可用 \(a=1>0\) 且 \(D=4-12=-8<0\) 说明图像恒在 \(x\) 轴上方。）
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Quadratic · A Level Pure Mathematics 知识点整理</span>
+    <span>配方 · 判别式 · 二次不等式 &nbsp;|&nbsp; 交互演示支持拖动 \(a,b,c\)</span>
+  </footer>
+</div>
+
+</div><!-- /.page -->
+
+<script defer>
+(function(){
+  'use strict';
+
+  /* ---------------- rational helpers ---------------- */
+  function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t;}return a||1;}
+  function R(n,d){ if(d<0){n=-n;d=-d;} const g=gcd(n,d)||1; return {n:n/g,d:d/g}; }
+  const rAdd=(x,y)=>R(x.n*y.d+y.n*x.d, x.d*y.d);
+  const rSub=(x,y)=>R(x.n*y.d-y.n*x.d, x.d*y.d);
+  const rMul=(x,y)=>R(x.n*y.n, x.d*y.d);
+  const rDiv=(x,y)=>R(x.n*y.d, x.d*y.n);
+  const rNeg=x=>R(-x.n,x.d);
+  const rVal=x=>x.n/x.d;
+  const rZero=x=>x.n===0;
+  function rTex(x){
+    if(x.n===0) return '0';
+    const s=x.n<0?'-':''; const a=Math.abs(x.n);
+    return (x.d===1) ? s+String(a) : s+'\\frac{'+a+'}{'+x.d+'}';
+  }
+  function rDec(x,dp){
+    dp=dp===undefined?2:dp;
+    let v=x.n/x.d;
+    if(Math.abs(v)<1e-12) v=0;
+    let s=v.toFixed(dp);
+    if(s.indexOf('.')>=0) s=s.replace(/0+$/,'').replace(/\.$/,'');
+    return s;
+  }
+  function isPSq(n){ if(n<0||!isFinite(n)) return false; const r=Math.round(Math.sqrt(n)); return r*r===n; }
+
+  /* ---------------- math render ---------------- */
+  function tex(el,str){
+    if(window.katex){ try{ katex.render(str,el,{throwOnError:false,displayMode:false}); return; }catch(e){} }
+    el.textContent=str;
+  }
+
+  /* ---------------- state ---------------- */
+  const S={a:1,b:-2,c:-3,showPos:true,showNeg:false};
+
+  const cA=document.getElementById('va'), cB=document.getElementById('vb'), cC=document.getElementById('vc');
+  const sA=document.getElementById('sa'), sB=document.getElementById('sb'), sC=document.getElementById('sc');
+  const btnPos=document.getElementById('hg'), btnNeg=document.getElementById('hl');
+
+  /* ---------------- canvas ---------------- */
+  const cv=document.getElementById('graph');
+  const ctx=cv.getContext('2d');
+  let CW=0,CH=420,PADL=42,PADR=18,PADT=18,PADB=30;
+  let view={xMin:-6,xMax:6,yMin:-10,yMax:10};
+
+  function fit(){
+    const box=cv.parentElement.getBoundingClientRect();
+    CW=Math.max(300,Math.floor(box.width-16));
+    CH=window.innerWidth<700?330:420;
+    const dpr=window.devicePixelRatio||1;
+    cv.width=CW*dpr; cv.height=CH*dpr;
+    cv.style.width=CW+'px'; cv.style.height=CH+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  const X=x=>PADL+(x-view.xMin)/(view.xMax-view.xMin)*(CW-PADL-PADR);
+  const Y=y=>CH-PADB-(y-view.yMin)/(view.yMax-view.yMin)*(CH-PADT-PADB);
+  const f=x=>S.a*x*x+S.b*x+S.c;
+
+  function computeView(){
+    const a=S.a||0.25;
+    const vx=-S.b/(2*a);
+    const vy=S.c-S.b*S.b/(4*a);
+    let hw=Math.sqrt(8/Math.abs(a));
+    hw=Math.min(8,Math.max(2,hw));
+    const xMin=vx-hw, xMax=vx+hw;
+    let lo=vy, hi=vy;
+    for(let i=0;i<=240;i++){
+      const x=xMin+(xMax-xMin)*i/240, y=f(x);
+      if(y<lo) lo=y; if(y>hi) hi=y;
+    }
+    if(lo>0) lo=0; if(hi<0) hi=0;
+    let pad=(hi-lo)*0.14; if(pad<0.6) pad=0.6;
+    let yMin=lo-pad, yMax=hi+pad;
+    if(yMax-yMin<3){ const m=(yMax+yMin)/2; yMin=m-1.5; yMax=m+1.5; }
+    view={xMin:xMin,xMax:xMax,yMin:yMin,yMax:yMax};
+  }
+
+  function niceStep(span){
+    const raw=span/8, p=Math.pow(10,Math.floor(Math.log10(raw))), n=raw/p;
+    let m; if(n<1.5) m=1; else if(n<3) m=2; else if(n<7) m=5; else m=10;
+    return m*p;
+  }
+  function fmtTick(v){
+    if(Math.abs(v)<1e-9) return '0';
+    const s=(Math.round(v*1e6)/1e6).toString();
+    return s.length>6?s.slice(0,6):s;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,CW,CH);
+    computeView();
+    /* background */
+    ctx.fillStyle='#fbfdff'; ctx.fillRect(0,0,CW,CH);
+
+    const xs=niceStep(view.xMax-view.xMin), ys=niceStep(view.yMax-view.yMin);
+
+    /* grid */
+    ctx.lineWidth=1; ctx.strokeStyle='#e9eff6';
+    ctx.beginPath();
+    for(let x=Math.ceil(view.xMin/xs)*xs;x<=view.xMax;x+=xs){ const px=X(x); ctx.moveTo(px,PADT); ctx.lineTo(px,CH-PADB); }
+    for(let y=Math.ceil(view.yMin/ys)*ys;y<=view.yMax;y+=ys){ const py=Y(y); ctx.moveTo(PADL,py); ctx.lineTo(CW-PADR,py); }
+    ctx.stroke();
+
+    /* highlight intervals on x-axis */
+    const roots=getRoots();
+    const hiPos=S.showPos, hiNeg=S.showNeg;
+    if((hiPos||hiNeg) && roots.length){
+      const a=S.a;
+      function band(x1,x2,color){
+        if(x2<=x1) return;
+        const px1=X(x1), px2=X(x2), py=Y(0);
+        const g=ctx.createLinearGradient(0,py-11,0,py+11);
+        g.addColorStop(0,color+'00'); g.addColorStop(.5,color+'44'); g.addColorStop(1,color+'00');
+        ctx.fillStyle=g; ctx.fillRect(px1,py-11,px2-px1,22);
+        ctx.fillStyle=color+'88';
+        ctx.fillRect(px1,py-3,px2-px1,6);
+      }
+      if(hiPos){
+        if(roots.length===2){
+          if(a>0){ band(view.xMin,roots[0].x,'#12a08a'); band(roots[1].x,view.xMax,'#12a08a'); }
+          else{ band(roots[0].x,roots[1].x,'#12a08a'); }
+        } else { band(view.xMin,view.xMax,'#12a08a'); }
+      }
+      if(hiNeg){
+        if(roots.length===2){
+          if(a>0){ band(roots[0].x,roots[1].x,'#e2664f'); }
+          else{ band(view.xMin,roots[0].x,'#e2664f'); band(roots[1].x,view.xMax,'#e2664f'); }
+        } else if(roots.length===1){ band(view.xMin,view.xMax,'#e2664f'); }
+      }
+    }
+
+    /* axes */
+    ctx.strokeStyle='#b9c6d4'; ctx.lineWidth=1.4;
+    const y0=Y(0), x0=X(0);
+    ctx.beginPath();
+    if(y0>PADT&&y0<CH-PADB){ ctx.moveTo(PADL,y0); ctx.lineTo(CW-PADR,y0); }
+    if(x0>PADL&&x0<CW-PADR){ ctx.moveTo(x0,PADT); ctx.lineTo(x0,CH-PADB); }
+    ctx.stroke();
+
+    /* tick labels */
+    ctx.fillStyle='#8d9db0'; ctx.font='11px ui-monospace,Consolas,monospace';
+    ctx.textAlign='center'; ctx.textBaseline='top';
+    const axisY=Math.min(CH-PADB-12,Math.max(PADT+12,y0));
+    for(let x=Math.ceil(view.xMin/xs)*xs;x<=view.xMax;x+=xs){
+      if(Math.abs(x)<1e-9) continue;
+      ctx.beginPath(); ctx.moveTo(X(x),axisY-3); ctx.lineTo(X(x),axisY+3); ctx.strokeStyle='#cbd6e2'; ctx.stroke();
+      ctx.fillText(fmtTick(x),X(x),axisY+5);
+    }
+    ctx.textAlign='right'; ctx.textBaseline='middle';
+    const axisX=Math.min(CW-PADR-6,Math.max(PADL+22,x0));
+    for(let y=Math.ceil(view.yMin/ys)*ys;y<=view.yMax;y+=ys){
+      if(Math.abs(y)<1e-9) continue;
+      ctx.fillText(fmtTick(y),axisX-8,Y(y));
+    }
+    ctx.fillStyle='#a8b6c5'; ctx.textAlign='right'; ctx.textBaseline='top';
+    ctx.fillText('x',CW-PADR-2,Math.min(CH-PADB+4,CH-16));
+
+    /* axis of symmetry */
+    const vx=-S.b/(2*(S.a||0.25));
+    if(vx>view.xMin&&vx<view.xMax){
+      ctx.save(); ctx.setLineDash([5,5]); ctx.strokeStyle='#e8823a'; ctx.lineWidth=1.4;
+      ctx.beginPath(); ctx.moveTo(X(vx),PADT); ctx.lineTo(X(vx),CH-PADB); ctx.stroke(); ctx.restore();
+    }
+
+    /* curve, colored by sign */
+    const N=720, x1=view.xMin, x2=view.xMax;
+    ctx.lineWidth=2.8; ctx.lineCap='round'; ctx.lineJoin='round';
+    for(let i=0;i<N;i++){
+      const xa=x1+(x2-x1)*i/N, xb=x1+(x2-x1)*(i+1)/N;
+      const ya=f(xa), yb=f(xb), ym=f((xa+xb)/2);
+      ctx.strokeStyle = ym>0 ? '#12a08a' : (ym<0 ? '#e2664f' : '#7f8c9b');
+      ctx.beginPath(); ctx.moveTo(X(xa),Y(ya)); ctx.lineTo(X(xb),Y(yb)); ctx.stroke();
+    }
+
+    /* y-intercept */
+    const pyc=Y(S.c);
+    if(pyc>PADT&&pyc<CH-PADB){
+      ctx.fillStyle='#fff'; ctx.strokeStyle='#8e5ab8'; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.arc(X(0),pyc,4.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    }
+
+    /* roots */
+    roots.forEach(function(r){
+      const px=X(r.x), py=Y(0);
+      ctx.fillStyle='#fff'; ctx.strokeStyle='#2f7fbf'; ctx.lineWidth=2.4;
+      ctx.beginPath(); ctx.arc(px,py,5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle='#1f6ba8'; ctx.font='600 11.5px "Segoe UI",sans-serif';
+      ctx.textAlign='center'; ctx.textBaseline='bottom';
+      ctx.fillText(fmtTick(Math.round(r.x*1000)/1000),px,py-9);
+    });
+
+    /* vertex */
+    const vy=S.c-S.b*S.b/(4*(S.a||0.25));
+    if(vx>view.xMin-1&&vx<view.xMax+1&&vy>view.yMin-1&&vy<view.yMax+1){
+      const px=X(vx), py=Y(vy);
+      ctx.fillStyle='#e8823a';
+      ctx.beginPath(); ctx.arc(px,py,5.6,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle='#fff'; ctx.lineWidth=2; ctx.stroke();
+      ctx.fillStyle='#b8641f'; ctx.font='700 11.5px "Segoe UI",sans-serif';
+      ctx.textAlign='center'; ctx.textBaseline='top';
+      ctx.fillText('vertex',px,py+9);
+    }
+  }
+
+  /* ---------------- roots ---------------- */
+  function getRoots(){
+    const a=S.a; if(!a) return [];
+    const d=S.b*S.b-4*a*S.c;
+    if(d<-1e-12) return [];
+    if(Math.abs(d)<1e-12) return [{x:-S.b/(2*a),dbl:true}];
+    const s=Math.sqrt(d);
+    let r1=(-S.b-s)/(2*a), r2=(-S.b+s)/(2*a);
+    if(r1>r2){const t=r1;r1=r2;r2=t;}
+    return [{x:r1},{x:r2}];
+  }
+
+  /* ---------------- roots: exact when possible, else decimal ---------------- */
+  function rootInfo(){
+    const an=Math.round(S.a*4), bn=Math.round(S.b*4), cn=Math.round(S.c*4);
+    const A=R(an,4), B=R(bn,4), D=R(bn*bn-4*an*cn,16);
+    const roots=getRoots();
+    if(roots.length===0) return {count:0, D:D, list:[]};
+    if(roots.length===1){
+      const x0=R(-bn,2*an);
+      return {count:1, D:D, list:[{tex:rTex(x0), dec:rDec(x0,3), exact:true}]};
+    }
+    if(isPSq(D.n) && isPSq(D.d)){
+      const s=R(Math.round(Math.sqrt(D.n)),Math.round(Math.sqrt(D.d)));
+      let r1=rDiv(rSub(rNeg(B),s), R(an,2));
+      let r2=rDiv(rAdd(rNeg(B),s), R(an,2));
+      if(rVal(r1)>rVal(r2)){ const t=r1; r1=r2; r2=t; }   /* 保证 r1 < r2 */
+      return {count:2, D:D, list:[
+        {tex:rTex(r1), dec:rDec(r1,3), exact:true},
+        {tex:rTex(r2), dec:rDec(r2,3), exact:true}]};
+    }
+    return {count:2, D:D, list:[
+      {tex:rDec(R(Math.round(roots[0].x*1e4),1e4),3), dec:null, exact:false},
+      {tex:rDec(R(Math.round(roots[1].x*1e4),1e4),3), dec:null, exact:false}]};
+  }
+
+  /* ---------------- interval text ---------------- */
+  function intervalTex(positive){
+    const a=S.a, info=rootInfo();
+    if(info.count===0){
+      const always = (a>0) === positive;
+      return always ? '\\text{对所有实数 } x \\text{ 均成立（} \\mathbb{R} \\text{）}'
+                    : '\\text{无解（} \\varnothing \\text{）}';
+    }
+    if(info.count===1){
+      const x0=info.list[0].tex;
+      return ((a>0)===positive)
+        ? 'x \\neq '+x0+'\\quad(\\text{除 } x='+x0+' \\text{ 外的所有实数})'
+        : '\\text{无解（} \\varnothing \\text{）}';
+    }
+    const x1=info.list[0].tex, x2=info.list[1].tex;
+    if((a>0)===positive){
+      return 'x < '+x1+' \\;\\text{ 或 }\\; x > '+x2+'\\quad(\\text{两根之外})';
+    }
+    return x1+' < x < '+x2+'\\quad(\\text{两根之间})';
+  }
+
+  /* ---------------- update UI ---------------- */
+  function update(){
+    const an=Math.round(S.a*4), bn=Math.round(S.b*4), cn=Math.round(S.c*4);
+    const A=R(an,4), B=R(bn,4), C=R(cn,4);
+    const A2=R(an,2);                        /* 2a */
+    const vx=rNeg(rDiv(B,A2));               /* -b/(2a) */
+    const vy=rSub(C, rDiv(rMul(B,B), rMul(R(4,1),A))); /* c - b^2/(4a) */
+    const D=rSub(rMul(B,B), rMul(R(4,1),rMul(A,C)));
+
+    cA.textContent=rDec(A); cB.textContent=rDec(B); cC.textContent=rDec(C);
+
+    /* equation */
+    const absA = rTex(A.n<0?rNeg(A):A);
+    const aPart = (Math.abs(rVal(A)-1)<1e-12?'':(Math.abs(rVal(A)+1)<1e-12?'-':absA));
+    const bMag = (Math.abs(rVal(B))===1 && B.d===1) ? '' : rTex(B.n<0?rNeg(B):B);
+    const bTerm = rZero(B)?'':(' ' + (B.n>0?'+':'-') + ' ' + bMag + 'x');
+    const cTerm = rZero(C)?'':(' ' + (C.n>0?'+':'-') + ' ' + rTex(C.n<0?rNeg(C):C));
+    tex(document.getElementById('r-eq'), 'y = '+aPart+'x^2'+bTerm+cTerm);
+
+    /* vertex form: a(x - h)^2 + k */
+    const hAbs = rTex(vx.n<0?rNeg(vx):vx);
+    const inner = rZero(vx) ? 'x^2' : ('\\left(x '+(vx.n>0?'-':'+')+' '+hAbs+'\\right)^2');
+    const kPart = rZero(vy) ? '' : (' '+(vy.n>=0?'+':'-')+' '+rTex(vy.n<0?rNeg(vy):vy));
+    tex(document.getElementById('r-vf'), 'y = '+aPart+inner+kPart);
+
+    const vApprox = (vx.d===1 && vy.d===1) ? '' : ' \\approx ('+rDec(vx)+',\\; '+rDec(vy)+')';
+    tex(document.getElementById('r-v'), '\\left('+rTex(vx)+',\\; '+rTex(vy)+'\\right)'+vApprox);
+    tex(document.getElementById('r-axis'), rZero(vx) ? 'x = 0\\;(\\text{y 轴})' : 'x = '+rTex(vx));
+
+    tex(document.getElementById('r-d'),
+        'D = b^2-4ac = '+rTex(D)
+        +(D.d===1?'':' \\approx '+rDec(D,2))
+        +'\\quad\\Rightarrow\\quad '+(D.n>0?'D > 0':(D.n<0?'D < 0':'D = 0')));
+
+    let nat;
+    if(rZero(D)) nat='一个重根（repeated / double root）：图像与 x 轴相切';
+    else if(D.n>0) nat='两个不同的实根（2 distinct real roots）：图像与 x 轴有 2 个交点';
+    else nat='没有实根（no real roots）：图像与 x 轴不相交';
+    document.getElementById('r-nat').textContent=nat;
+
+    /* roots exact when D is a perfect square */
+    const info=rootInfo();
+    const withApprox=function(it){
+      if(it.tex.indexOf('\\')<0) return it.tex;      /* 整数无需近似值 */
+      return it.tex+' \\approx '+it.dec;
+    };
+    let rtTxt;
+    if(info.count===0){
+      rtTxt='\\text{无实根（两根为共轭复数）}';
+    } else if(info.count===1){
+      rtTxt='x = '+withApprox(info.list[0]);
+    } else {
+      rtTxt='x_1 = '+withApprox(info.list[0])+',\\qquad x_2 = '+withApprox(info.list[1]);
+    }
+    tex(document.getElementById('r-roots'), rtTxt);
+
+    tex(document.getElementById('r-pos'), intervalTex(true));
+    tex(document.getElementById('r-neg'), intervalTex(false));
+
+    draw();
+  }
+
+  /* ---------------- events ---------------- */
+  function bindSlider(el,key,out){
+    el.addEventListener('input',function(){
+      let v=parseFloat(el.value);
+      if(key==='a' && Math.abs(v)<1e-9){ v = (parseFloat(out.textContent)>=0?0.25:-0.25); el.value=v; }
+      S[key]=v; update();
+    });
+  }
+  bindSlider(sA,'a',cA); bindSlider(sB,'b',cB); bindSlider(sC,'c',cC);
+
+  document.querySelectorAll('.presets button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      const p=btn.dataset.p.split(',').map(Number);
+      S.a=p[0]; S.b=p[1]; S.c=p[2];
+      sA.value=S.a; sB.value=S.b; sC.value=S.c;
+      update();
+    });
+  });
+
+  btnPos.addEventListener('click',function(){ S.showPos=!S.showPos; btnPos.classList.toggle('on',S.showPos); update(); });
+  btnNeg.addEventListener('click',function(){ S.showNeg=!S.showNeg; btnNeg.classList.toggle('on',S.showNeg); btnNeg.classList.toggle('coral',S.showNeg); update(); });
+
+  let rt=null;
+  window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ fit(); update(); },120); });
+
+  /* ================= floating rail: scroll-spy + collapse + drawer ================= */
+  const railLinks=Array.prototype.slice.call(document.querySelectorAll('nav.rail a[href^="#"]'));
+  const railTargets=railLinks.map(function(a){
+    return {a:a, el:document.querySelector(a.getAttribute('href'))};
+  }).filter(function(t){ return !!t.el; });
+
+  const railBar=document.getElementById('railBar');
+  const railPct=document.getElementById('railPct');
+  const railMin=document.getElementById('railMin');
+  const railClose=document.getElementById('railClose');
+  const railFab=document.getElementById('railFab');
+  const railScrim=document.getElementById('railScrim');
+  const root=document.documentElement;
+  let spyLock=0;
+
+  function railSetActive(link){
+    railLinks.forEach(function(l){ l.classList.toggle('active', l===link); });
+  }
+
+  function railSync(){
+    if(!railTargets.length) return;
+    const y=window.pageYOffset+150;
+    let cur=railTargets[0];
+    for(let i=0;i<railTargets.length;i++){
+      const top=railTargets[i].el.getBoundingClientRect().top+window.pageYOffset;
+      if(top<=y) cur=railTargets[i];
+    }
+    const max=root.scrollHeight-window.innerHeight;
+    if(max>0 && window.pageYOffset>=max-4) cur=railTargets[railTargets.length-1];
+    if(Date.now()>=spyLock) railSetActive(cur.a);
+
+    const pct = max>0 ? Math.min(1,Math.max(0,window.pageYOffset/max)) : 0;
+    if(railBar) railBar.style.width=(pct*100).toFixed(1)+'%';
+    if(railPct) railPct.textContent=Math.round(pct*100)+'%';
+  }
+
+  /* ---- 滚动定位：优先原生平滑滚动，带“没生效就直接跳”的兜底 ---- */
+  function rawScroll(y){
+    const prev=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';
+    window.scrollTo(0,y);
+    root.style.scrollBehavior=prev||'';
+  }
+  let scrollGuard=0;
+  function scrollToY(y){
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ rawScroll(y); return; }
+    let ok=true;
+    try{ window.scrollTo({top:y, behavior:'smooth'}); }catch(e){ ok=false; }
+    if(!ok){ rawScroll(y); return; }
+    /* 平滑滚动被禁用或环境不推进时，约半秒后直接跳到目标 */
+    if(scrollGuard) clearTimeout(scrollGuard);
+    scrollGuard=setTimeout(function(){
+      scrollGuard=0;
+      if(Math.abs(window.pageYOffset-y)>8) rawScroll(y);
+    },500);
+  }
+
+  /* click a rail link: auto-open the target 延伸思考 block, then scroll */
+  railLinks.forEach(function(a){
+    a.addEventListener('click',function(ev){
+      const id=a.getAttribute('href').slice(1);
+      const el=document.getElementById(id);
+      if(!el) return;
+      ev.preventDefault();
+      spyLock=Date.now()+900;
+      railSetActive(a);
+      if(el.tagName==='DETAILS' && !el.open){
+        el.open=true;
+        el.classList.remove('flash');
+        void el.offsetWidth;
+        el.classList.add('flash');
+      }
+      setDrawer(false);
+      /* 展开后同步取位置（读取 rect 会强制布局，位置已是最新） */
+      const y=Math.max(0, el.getBoundingClientRect().top+window.pageYOffset-18);
+      scrollToY(y);
+      setTimeout(railSync,950);
+      if(history.replaceState) history.replaceState(null,'','#'+id);
+    });
+  });
+
+  /* desktop: collapse the rail to a slim icon strip */
+  function setMin(v){
+    root.classList.toggle('rail-min', v);
+    try{ localStorage.setItem('q_rail_min', v?'1':'0'); }catch(e){}
+  }
+  try{ if(localStorage.getItem('q_rail_min')==='1') setMin(true); }catch(e){}
+  if(railMin) railMin.addEventListener('click',function(){
+    setMin(!root.classList.contains('rail-min'));
+  });
+
+  /* narrow screens: drawer */
+  function setDrawer(open){
+    document.body.classList.toggle('rail-open', open);
+    if(railFab) railFab.setAttribute('aria-expanded', open?'true':'false');
+  }
+  if(railFab) railFab.addEventListener('click',function(){
+    setDrawer(!document.body.classList.contains('rail-open'));
+  });
+  if(railClose) railClose.addEventListener('click',function(){ setDrawer(false); });
+  if(railScrim) railScrim.addEventListener('click',function(){ setDrawer(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setDrawer(false); });
+
+  let railRt=null;
+  window.addEventListener('scroll',function(){
+    if(railRt) return;
+    railRt=requestAnimationFrame(function(){ railRt=null; railSync(); });
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    if(window.innerWidth>1080) setDrawer(false);
+    railSync();
+  });
+
+  railSync();
+
+  /* boot */
+  fit(); update();
+  window.addEventListener('load',function(){ fit(); update(); railSync(); });
+})();
+</script>
+</body>
+</html>
