@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>割线逼近切线演示</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+        .controls {
+            margin-top: 20px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type=range] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .info-panel {
+            margin-top: 15px;
+            text-align: left;
+            width: 100%;
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .label-secant { color: blue; font-weight: bold; }
+        .label-tangent { color: green; font-weight: bold; }
+        .h-value { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>从平均变化率到瞬时变化率 (割线 → 切线)</h2>
+    <p>拖动滑块改变 h 的值，观察点 Q 靠近点 P 的过程。</p>
+    
+    <canvas id="mathCanvas" width="600" height="400"></canvas>
+    
+    <div class="controls">
+        <label for="hSlider">h 的值 (Q点与P点的水平距离): <span id="hSliderVal" class="h-value">2.00</span></label>
+        <!-- h 的范围从 3.0 到 0.01，步长 0.01。不设置到0是为了避免除以零错误，在视觉上0.01已经足够接近 -->
+        <input type="range" id="hSlider" min="0.01" max="3.0" step="0.01" value="2.00">
+        
+        <div class="info-panel">
+            <p>函数: f(x) = 0.2x² + 1, 固定点 P 在 x = 2 处</p>
+            <p><span class="label-secant">割线斜率 (平均变化率):</span> <span id="secantSlope"></span></p>
+            <p><span class="label-tangent">切线斜率 (导数 f'(2)):</span> <span id="tangentSlope"></span> (恒定值)</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('mathCanvas');
+    const ctx = canvas.getContext('2d');
+    const hSlider = document.getElementById('hSlider');
+    const hSliderValDisplay = document.getElementById('hSliderVal');
+    const secantSlopeDisplay = document.getElementById('secantSlope');
+    const tangentSlopeDisplay = document.getElementById('tangentSlope');
+
+    // --- 配置参数 ---
+    const scaleX = 60; // x轴缩放比例 (像素/单位)
+    const scaleY = 60; // y轴缩放比例 (像素/单位)
+    const offsetX = 60; // 原点距离画布左侧的偏移量
+    const offsetY = 40; // 原点距离画布底部的偏移量
+    const fixedPointX = 2; // 点 P 的 x 坐标 (图中 a 的位置)
+
+    // --- 数学函数定义 ---
+    // 定义曲线方程 f(x) = 0.2x^2 + 1 (选择这个函数是因为它在第一象限的形状符合图示)
+    function f(x) {
+        return 0.2 * x * x + 1;
+    }
+
+    // 定义导数函数 f'(x) = 0.4x
+    function fPrime(x) {
+        return 0.4 * x;
+    }
+
+    // --- 坐标转换工具函数 ---
+    // 将数学坐标 x 转换为画布坐标 x
+    function toCanvasX(x) {
+        return offsetX + x * scaleX;
+    }
+
+    // 将数学坐标 y 转换为画布坐标 y (画布 y 轴向下，需要反转)
+    function toCanvasY(y) {
+        return canvas.height - offsetY - y * scaleY;
+    }
+
+    // --- 绘图辅助函数 ---
+    function drawLine(x1, y1, x2, y2, color, width = 1, dashed = false) {
+        ctx.beginPath();
+        ctx.moveTo(toCanvasX(x1), toCanvasY(y1));
+        ctx.lineTo(toCanvasX(x2), toCanvasY(y2));
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        if (dashed) {
+            ctx.setLineDash([5, 3]);
+        } else {
+            ctx.setLineDash([]);
+        }
+        ctx.stroke();
+    }
+
+    function drawPoint(x, y, color, label) {
+        const cx = toCanvasX(x);
+        const cy = toCanvasY(y);
+        ctx.beginPath();
+        ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+        if (label) {
+            ctx.font = '16px Arial';
+            ctx.fillStyle = 'black';
+            ctx.fillText(label, cx + 10, cy - 10);
+        }
+    }
+
+    function drawText(text, x, y, color = 'black', font = '14px Arial') {
+        ctx.font = font;
+        ctx.fillStyle = color;
+        ctx.fillText(text, toCanvasX(x), toCanvasY(y));
+    }
+
+    // --- 主绘图函数 ---
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 1. 绘制坐标轴
+        drawLine(-1, 0, 8, 0, 'black', 2); // X轴
+        drawLine(0, -1, 0, 6, 'black', 2); // Y轴
+        drawText('O', -0.3, -0.3);
+        drawText('x', 7.8, -0.3);
+        drawText('y', 0.2, 5.8);
+
+        // 2. 绘制函数曲线 f(x)
+        ctx.beginPath();
+        for (let x = 0; x <= 7; x += 0.05) {
+            const cx = toCanvasX(x);
+            const cy = toCanvasY(f(x));
+            if (x === 0) ctx.moveTo(cx, cy);
+            else ctx.lineTo(cx, cy);
+        }
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([]);
+        ctx.stroke();
+        drawText('y = f(x)', 5, f(5) + 0.5);
+
+        // --- 获取当前 h 值并计算关键点 ---
+        const h = parseFloat(hSlider.value);
+        const pX = fixedPointX;
+        const pY = f(pX);
+        const qX = pX + h;
+        const qY = f(qX);
+
+        // 更新界面显示数值
+        hSliderValDisplay.textContent = h.toFixed(2);
+        const secSlope = (qY - pY) / h;
+        secantSlopeDisplay.textContent = secSlope.toFixed(4);
+        const tanSlope = fPrime(pX);
+        tangentSlopeDisplay.textContent = tanSlope.toFixed(4);
+
+
+        // 3. 绘制切线 (目标状态，绿色)
+        // 切线方程: y - pY = tanSlope * (x - pX)  =>  y = tanSlope * (x - pX) + pY
+        const drawTangentLine = () => {
+            const xStart = 0;
+            const yStart = tanSlope * (xStart - pX) + pY;
+            const xEnd = 6;
+            const yEnd = tanSlope * (xEnd - pX) + pY;
+            drawLine(xStart, yStart, xEnd, yEnd, 'green', 3);
+        };
+        drawTangentLine();
+
+
+        // 4. 绘制割线 PQ (动态状态，蓝色)
+        // 割线方程: y - pY = secSlope * (x - pX)
+        const drawSecantLine = () => {
+            const xStart = 0.5;
+            const yStart = secSlope * (xStart - pX) + pY;
+            const xEnd = qX + 1.5; // 让线稍微延伸出Q点一点
+            const yEnd = secSlope * (xEnd - pX) + pY;
+            drawLine(xStart, yStart, xEnd, yEnd, 'blue', 2);
+        }
+        drawSecantLine();
+
+
+        // 5. 绘制辅助线和标签 (模仿参考图)
+        // P点向下垂线
+        drawLine(pX, 0, pX, pY, 'gray', 1, true);
+        drawText('a', pX - 0.1, -0.4);
+
+        // Q点向下垂线
+        drawLine(qX, 0, qX, qY, 'gray', 1, true);
+        drawText('a + h', qX - 0.2, -0.4);
+
+        // P点向右水平线 (用于构建直角三角形)
+        drawLine(pX, pY, qX, pY, 'gray', 1, true);
+
+        // 绘制 h 和 Δy (f(a+h)-f(a)) 的红色标识线
+        // 水平 h
+        drawLine(pX, pY - 0.2, qX, pY - 0.2, 'red', 2);
+        drawText('h', pX + h / 2 - 0.1, pY - 0.5, 'red');
+
+        // 垂直 Δy
+        drawLine(qX + 0.1, pY, qX + 0.1, qY, 'red', 2);
+        // 只有当h比较大时才显示这个长标签，避免拥挤
+        if (h > 1.2) {
+            drawText('f(a+h) - f(a)', qX + 0.2, pY + (qY - pY) / 2);
+        }
+
+
+        // 6. 绘制点 P 和 Q
+        drawPoint(pX, pY, 'black', 'P');
+        // 当 h 非常小时，Q点变色以示区别，且不挡住P
+        const qColor = h < 0.1 ? 'rgba(0,0,255,0.5)' : 'blue';
+        drawPoint(qX, qY, qColor, h < 0.3 ? '' : 'Q');
+
+        // 7. 添加动态提示文本
+        ctx.font = '18px Arial';
+        if (h < 0.1) {
+             ctx.fillStyle = 'green';
+             ctx.fillText('h → 0，割线近似于切线', toCanvasX(3.5), toCanvasY(4.5));
+        } else {
+             ctx.fillStyle = 'blue';
+             ctx.fillText('割线 (平均变化率)', toCanvasX(qX + 0.5), toCanvasY(qY + 0.5));
+        }
+    }
+
+    // --- 事件监听 ---
+    hSlider.addEventListener('input', draw);
+
+    // --- 初始化绘制 ---
+    draw();
+
+</script>
+</body>
+</html>
